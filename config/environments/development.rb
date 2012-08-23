@@ -29,6 +29,9 @@ EGov::Application.configure do
     :authentication       => 'plain',
     :enable_starttls_auto => true  
   }
+  
+  # Default host
+  config.action_mailer.default_url_options = { :host => "e_gov" }
 
 
   # Print deprecation notices to the Rails logger

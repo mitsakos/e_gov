@@ -37,6 +37,9 @@ EGov::Application.configure do
     :enable_starttls_auto => true  
   }
 
+  # Default host
+  config.action_mailer.default_url_options = { :host => "e_gov" }
+
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 
