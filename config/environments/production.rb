@@ -34,7 +34,7 @@ EGov::Application.configure do
     :user_name            => 'apollon84@gmail.com',
     :password             => '2781984',
     :authentication       => 'plain',
-    :enable_starttls_auto => true  
+    :enable_starttls_auto => true
   }
 
   # Default host
