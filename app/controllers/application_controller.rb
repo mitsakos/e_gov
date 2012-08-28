@@ -3,6 +3,23 @@ class ApplicationController < ActionController::Base
 	protect_from_forgery
 	# Making the method current_user available in the view
 	helper_method :current_user
+	# helper_method :admin?
+
+	protected
+
+	# Authorizing user
+	def authorize
+		unless admin?
+			flash[:error] = "Unauthorized access"
+			redirect_to root_url
+			false
+		end		
+	end
+
+	# Determining if current user is administrator 
+	def admin?
+		current_user.administrator				
+	end
 
 	private
 

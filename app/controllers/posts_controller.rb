@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+	before_filter :authorize, :except => [:index, :show]
+
 	# GET /posts
 	# GET /posts.json
 	# Show all posts can be formatted in html and json
