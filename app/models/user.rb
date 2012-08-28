@@ -17,6 +17,9 @@
 
 class User < ActiveRecord::Base
 
+	# Creating assosiations with posts and comments
+	has_many :posts
+	has_many :comments
 	# Limiting mass assignment for security
 	attr_accessible :username, :email, :password, :password_confirmation
 	# Making needed attributes available
