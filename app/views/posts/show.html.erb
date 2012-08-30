@@ -15,13 +15,16 @@
   <%= @post.user.username %>
 </p>
 
-
+<div id="comments">
 <h2>Comments</h2>
 <%= render @post.comments %>
+</div>
 
 
 <h2>Add a comment:</h2>
+<div id = "comment_form">
 <%= render "comments/form" %>
+</div>
 
 <br />
 <%= link_to 'Edit', edit_post_path(@post) %> |

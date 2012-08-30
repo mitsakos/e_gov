@@ -18,7 +18,11 @@ class ApplicationController < ActionController::Base
 
 	# Determining if current user is administrator 
 	def admin?
-		current_user.administrator				
+		if current_user != nil && current_user.administrator
+			true
+		else
+			false
+		end			
 	end
 
 	private

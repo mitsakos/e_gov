@@ -1,3 +1,4 @@
+<%= div_for comment do %>
 <p>
     <b>User:</b>
     <%= comment.user.username %>
@@ -9,7 +10,11 @@
   </p>
 
   <p>
+    <div id = "destroy_comment">
   <%= link_to 'Destroy Comment', [comment.post, comment],
                :confirm => 'Are you sure?',
-               :method => :delete %>
+               :method => :delete, 
+               :remote => true %>
+</div>
+<% end %>
 </p>

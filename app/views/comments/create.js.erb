@@ -1,0 +1,6 @@
+// Add the new comment to the bottom of the comments list
+$("#comments").append("<%= escape_javascript(render(:partial => @comment)) %>");
+// Highlight the new comment
+$('#<%= dom_id(@comment) %>').effect('highlight', {color: 'cyan', mode: 'show'}, 2000);
+// Reset the comment form
+$("#comment_form > form")[0].reset();
