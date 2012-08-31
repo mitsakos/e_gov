@@ -2,13 +2,34 @@ class ApplicationController < ActionController::Base
 
 	protect_from_forgery
 	# Making the method current_user available in the view
-	helper_method :current_user
-	# helper_method :admin?
+	helper_method :current_user, :is_owner
+	helper_method :admin?
 
 	protected
 
-	# Authorizing user
-	def authorize
+	# Determining if current user is owner of object
+	def is_owner(object)
+		if current_user && ( current_user.id == object.user_id )
+			true
+		else
+			false
+		end		
+	end
+
+
+	# Authorizing users
+	def authorize_user
+		if current_user
+			true
+		else
+			flash[:error] = "You need to log in!"
+			redirect_to root_url
+			false
+		end		
+	end
+
+	# Authorizing administrator
+	def authorize_admin
 		unless admin?
 			flash[:error] = "Unauthorized access"
 			redirect_to root_url
@@ -18,11 +39,7 @@ class ApplicationController < ActionController::Base
 
 	# Determining if current user is administrator 
 	def admin?
-		if current_user != nil && current_user.administrator
-			true
-		else
-			false
-		end			
+		current_user && current_user.administrator				
 	end
 
 	private

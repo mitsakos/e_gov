@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <b>Title:</b>
@@ -20,12 +20,17 @@
 <%= render @post.comments %>
 </div>
 
-
+<% if current_user %>
 <h2>Add a comment:</h2>
 <div id = "comment_form">
 <%= render "comments/form" %>
 </div>
+<% else %>
+<p>You need to log in to comment</p>
+<% end %>
 
 <br />
+<% if admin? %>
 <%= link_to 'Edit', edit_post_path(@post) %> |
+<% end %>
 <%= link_to 'Back', posts_path %>

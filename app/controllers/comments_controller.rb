@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 
+	before_filter :authorize_user
+
 	# Finding the post in question creating the comment
 	# associated with the post and redirecting to post
 	# responding in html or javascript 
@@ -21,7 +23,6 @@ class CommentsController < ApplicationController
 		@post = Post.find(params[:post_id])
 		@comment = @post.comments.find(params[:id])
 		@comment.destroy
-		# redirect_to post_path(@post)
 		respond_to do |format|
 			format.html { redirect_to post_path(@post) }
 			format.js

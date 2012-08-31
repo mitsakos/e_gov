@@ -10,11 +10,13 @@
   </p>
 
   <p>
+    <% if admin? || is_owner(comment) %>
     <div id = "destroy_comment">
   <%= link_to 'Destroy Comment', [comment.post, comment],
                :confirm => 'Are you sure?',
                :method => :delete, 
                :remote => true %>
 </div>
+<% end %>
 <% end %>
 </p>
