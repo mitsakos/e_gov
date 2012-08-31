@@ -41,6 +41,9 @@ EGov::Application.configure do
 	# Default host
 	config.action_mailer.default_url_options = { :host => "e_gov" }
 
+	# Paperclip path to imagemagick
+	Paperclip.options[:command_path] = "/usr/bin/convert"
+
 	# Defaults to nil and saved in location specified by config.assets.prefix
 	# config.assets.manifest = YOUR_PATH
 

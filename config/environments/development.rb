@@ -34,6 +34,9 @@ EGov::Application.configure do
 	# Default host
 	config.action_mailer.default_url_options = { :host => "e_gov" }
 
+	# Paperclip path to imagemagick
+	Paperclip.options[:command_path] = "/usr/bin/convert"
+
 	# Print deprecation notices to the Rails logger
 	config.active_support.deprecation = :log
 

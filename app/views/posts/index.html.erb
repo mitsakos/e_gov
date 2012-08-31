@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Photo</th>
     <th>Title</th>
     <th>Content</th>
     <th>User</th>
@@ -12,6 +13,7 @@
 
 <% @posts.each do |post| %>
   <tr>
+    <td><%= image_tag post.photo.url(:small) %></td>
     <td><%= post.title %></td>
     <td><%= post.content %></td>
     <td><%= post.user.username %></td>

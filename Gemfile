@@ -4,7 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 gem 'mysql2'
 gem 'jquery-rails'
-gem 'bcrypt-ruby', :require => 'bcrypt' # Bcrypt gem needed for user password encryption 
+gem 'bcrypt-ruby', :require => 'bcrypt' # Bcrypt gem needed for user password encryption
+gem 'paperclip', "~> 3.0" # Paperclip gem for uploading images
 
 # Gems used only in the
 # development environment

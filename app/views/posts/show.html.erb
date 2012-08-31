@@ -1,6 +1,10 @@
 
 
 <p>
+  	<b>Photo:</b>
+  <%= image_tag @post.photo.url(:large) %>
+</p>
+<p>
   <b>Title:</b>
   <%= @post.title %>
 </p>
