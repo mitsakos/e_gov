@@ -1,6 +1,6 @@
 <h1>Listing posts</h1>
 
-<table>
+<table class = "table">
   <tr>
     <th>Photo</th>
     <th>Title</th>
@@ -15,7 +15,7 @@
   <tr>
     <td><%= image_tag post.photo.url(:small) %></td>
     <td><%= post.title %></td>
-    <td><%= post.content %></td>
+    <td><%= truncate(post.content, :length => 500, :separator => '.') %></td>
     <td><%= post.user.username %></td>
     <td><%= link_to 'Show', post %></td>
     <% if admin? %>
