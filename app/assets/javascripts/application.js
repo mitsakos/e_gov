@@ -15,3 +15,10 @@
 //= require jquery-ui-1.8.23.custom.min
 //= require bootstrap
 //= require_tree .
+
+// Hide notifications with slide-up effect (blind) after 5 seconds
+setTimeout(function() {
+    $("#notification").effect('blind', {mode: 'hide'}, function() {
+    	$(this).remove();
+    });
+}, 5000);

@@ -1,28 +1,24 @@
+<% message = pluralize(@post.errors.count, "error") + " prohibited this post from being saved: <br />" %>
+<% @post.errors.full_messages.each do |msg| %>
+	<% message = "#{message}#{msg}"+"<br />" %>
+<% end %>
+
 <%= form_for(@post,  :html => { :multipart => true }) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </div>
-  <p>
-    <%= f.file_field :photo %>
-  </p>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<% if @post.errors.any? %>
+		<% flash.now[:error] =  message.html_safe %>
+	<% end %>
+	<p>
+		<%= f.label :title %><br />
+		<%= f.text_field :title %>
+	</p>
+	<p>
+		<%= f.label :content %><br />
+		<%= f.text_area :content %>
+	</p>
+	<p>
+		<%= f.file_field :photo, :class => "btn" %>
+	</p>
+	<p>
+		<%= f.submit "Done", :class => "btn" %>
+	</p>
 <% end %>

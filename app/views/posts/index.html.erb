@@ -1,32 +1,61 @@
-<h1>Listing posts</h1>
+<div class = "container">
+    <div id="carousel" class="carousel slide">
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+            <div class="active item"><img src="/assets/carousel/carousel1.jpeg" alt="" />
+                <div class="carousel-caption">
+                    <h4>Maecenas volutpat</h4>
+                    <p>amet nisl quis erat elementum varius et eu orci. Mauris euismod bibendum tincidunt. In eget elit eget quam aliquet</p>
+                </div>
+            </div>
+            <div class="item"><img src="/assets/carousel/carousel2.jpeg" alt="" />
+                <div class="carousel-caption">
+                    <h4>Maecenas elementum</h4>
+                    <p>Curabitur adipiscing metus ac massa laoreet sit amet aliquet mi feugiat. Vivamus odio erat, molestie non rhoncus in</p>
+                </div>
+            </div>
+            <div class="item"><img src="/assets/carousel/carousel3.jpeg" alt="" />
+                <div class="carousel-caption">
+                    <h4>Sed posuere</h4>
+                    <p>sed, ultrices id sapien. Phasellus sed ante elit, egestas venenatis mauris. Aliquam tristique hendrerit erat, in laoreet</p>
+                </div>
+            </div>
+        </div>
+        <!-- Carousel nav -->
+        <a class="carousel-control left" href="#carousel" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#carousel" data-slide="next">&rsaquo;</a>
+    </div><!-- end of carousel -->
+</div><!-- end of carousel container -->
 
-<table class = "table">
-  <tr>
-    <th>Photo</th>
-    <th>Title</th>
-    <th>Content</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="row">
+    <div class="span8">
+        <% @posts.reverse.each do |post| %>
+            <div class="post">
+                <div class="row">
+                    <div class="span2">
+                        <%= image_tag post.photo.url(:small), :class => "img-rounded" %>
+                    </div>
+                    <div class="details span6">
+                        <h3><%= post.title %></h3>
+                        <p>
+                            <%= truncate(post.content, :length => 500, :separator => '.') %>
+                        </p>
+                    </div>
+                    <%= button_to 'Show', post, :class => "btn pull-right btn-primary", :method => :get %>
+                    <% if admin? %>
+                        <%= button_to 'Edit', edit_post_path(post), :class => "btn pull-right btn-info", :method => :get %>
+                        <%= button_to 'Destroy', post, :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn pull-right btn-danger" %>
+                    <% end %>
+                </div><!-- end post row -->
+            </div><!-- end post -->
+        <% end %>
+    </div><!-- end main area -->
+    <%= render 'layouts/aside' %>
+</div><!-- end row -->
 
-<% @posts.each do |post| %>
-  <tr>
-    <td><%= image_tag post.photo.url(:small) %></td>
-    <td><%= post.title %></td>
-    <td><%= truncate(post.content, :length => 500, :separator => '.') %></td>
-    <td><%= post.user.username %></td>
-    <td><%= link_to 'Show', post %></td>
-    <% if admin? %>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <% end %>
-  </tr>
-<% end %>
-</table>
 
 <br />
 <% if admin? %>
-<%= link_to 'New Post', new_post_path %>
+    <%= button_to 'New Post', new_post_path, :class => "btn", :method => :get%>
 <% end %>
+

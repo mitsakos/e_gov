@@ -13,3 +13,33 @@
  *= require bootstrap-responsive
  *= require_tree .
  */
+ 
+
+ #notification {
+ 	margin-bottom: 0;
+ }
+ #notification_container {
+ 	padding-top: 40px;
+ }
+ #main {
+	overflow:auto;
+	padding-bottom:200px;
+}
+footer {
+	height: 200px;
+	background: #000000;
+	position: relative;
+	margin-top: -200px;
+	clear:both;
+}
+html,body {
+	height:100%;
+}
+#wrap {
+	min-height: 100%;
+	background: #ffffff;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-left: 1px solid;
+	border-right: 1px solid;
+}

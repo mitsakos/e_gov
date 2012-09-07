@@ -1,22 +1,15 @@
 <%= div_for comment do %>
-<p>
-    <b>User:</b>
-    <%= comment.user.username %>
-  </p>
- 
-  <p>
-    <b>Comment:</b>
-    <%= comment.body %>
-  </p>
-
-  <p>
+	<p>
+		<h5><%= comment.user.username %></h5>
+		<%= comment.body %>
+	</p>
     <% if admin? || is_owner(comment) %>
-    <div id = "destroy_comment">
-  <%= link_to 'Destroy Comment', [comment.post, comment],
-               :confirm => 'Are you sure?',
-               :method => :delete, 
-               :remote => true %>
-</div>
+    	<div id = "destroy_comment">
+			<%= button_to 'Destroy Comment', [comment.post, comment],
+				               :confirm => 'Are you sure?',
+				               :method => :delete,
+				               :class => "btn btn-small btn-danger", 
+				               :remote => true %>
+		</div>
+	<% end %>
 <% end %>
-<% end %>
-</p>

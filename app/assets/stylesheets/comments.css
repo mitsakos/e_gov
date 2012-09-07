@@ -1,0 +1,6 @@
+#comment_textarea {
+	height: 100px;
+}
+.comment {
+	border-bottom: 1px dotted #ccc;
+}

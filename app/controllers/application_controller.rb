@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 		if current_user
 			true
 		else
-			flash[:error] = "You need to log in!"
+			flash[:alert] = "You need to log in!"
 			redirect_to root_url
 			false
 		end		
