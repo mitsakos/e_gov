@@ -32,8 +32,8 @@ EGov::Application.configure do
 		:address              => "smtp.gmail.com",
 		:port                 => 587,
 		:domain               => 'e_gov.com',
-		:user_name            => 'apollon84@gmail.com',
-		:password             => '2781984',
+		:user_name            => 'e.gov00@gmail.com',
+		:password             => 'egovernment',
 		:authentication       => 'plain',
 		:enable_starttls_auto => true
 	}

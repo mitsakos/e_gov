@@ -31,6 +31,7 @@ footer {
 	position: relative;
 	margin-top: -200px;
 	clear:both;
+	background: #ffffff url('/assets/tactile_noise.png') repeat;
 }
 html,body {
 	height:100%;
