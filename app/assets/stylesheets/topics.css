@@ -1,0 +1,14 @@
+#reply_info {
+	background-color: #f1f1f1;
+	border-bottom: 1px dotted #ccc;
+}
+
+#reply {
+	padding: 0px;
+}
+
+textarea {
+	width: 450px;
+	height: 100px;
+	padding: 5px;
+}

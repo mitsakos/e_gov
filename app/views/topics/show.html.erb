@@ -1,0 +1,42 @@
+<h2><%= @topic.title %></h2>
+<%= link_to 'Rails forums', forums_path %> &gt; <%= link_to @topic.forum.title, @topic.forum %> &gt; 
+<%= link_to @topic.title, forum_topic_path(@topic.forum, @topic) %><br />
+<table class = "table table-bordered">
+  <thead>
+    <tr>  
+      <th class = "span3">User</th>  
+      <th class = "span9">Message</th>  
+    </tr>
+  </thead>  
+<% for reply in @topic.replies %>
+<tbody>
+      <tr>  
+        <td><%= reply.user.username %><br />Registered: <%= reply.user.created_at %></td> 
+        <td id = "reply"><div id = "reply_info"><%= reply.created_at %></div><%= reply.body %>
+          <% if admin? || is_owner(reply) %>
+          <%= button_to 'Edit', edit_forum_topic_reply_path(reply.topic.forum.id, reply.topic.id, reply.id), :id => "reply_edit", :class => "btn btn-info pull-right", :method => :get %><br />
+          <%= button_to 'Destroy', forum_topic_reply_path(reply.topic.forum.id, reply.topic.id, reply.id), method: :delete, :id => "reply_destroy", data: { confirm: 'Are you sure?' }, :class => "btn btn-danger pull-right" %>
+      <% end %>  
+        </td>  
+      </tr>
+    </tbody>  
+  <% end %>  
+</table>
+<%= form_for([@forum, @topic, @topic.replies.build])  do |f| %>
+  
+<% if current_user %>
+          <div class="field">
+    
+    <%= f.text_area :body %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+        <% else %>
+          <p>
+            You need to log in to reply
+          </p>
+        <% end %>
+  
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120831161030) do
+ActiveRecord::Schema.define(:version => 20121021115454) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(:version => 20120831161030) do
 
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "forums", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "posts", :force => true do |t|
     t.string   "title"
@@ -37,6 +44,30 @@ ActiveRecord::Schema.define(:version => 20120831161030) do
   end
 
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
+
+  create_table "replies", :force => true do |t|
+    t.integer  "topic_id"
+    t.integer  "user_id"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "replies", ["topic_id"], :name => "index_replies_on_topic_id"
+  add_index "replies", ["user_id"], :name => "index_replies_on_user_id"
+
+  create_table "topics", :force => true do |t|
+    t.string   "title"
+    t.integer  "forum_id"
+    t.integer  "user_id"
+    t.integer  "last_poster_id"
+    t.datetime "last_post_at"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "topics", ["forum_id"], :name => "index_topics_on_forum_id"
+  add_index "topics", ["user_id"], :name => "index_topics_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "username"

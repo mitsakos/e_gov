@@ -1,0 +1,8 @@
+th {
+	background-color:#111111;
+	color:#ffffff;
+}
+
+#topic_edit, #topic_destroy {
+	display: inline;
+}

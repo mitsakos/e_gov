@@ -1,0 +1,11 @@
+<%= form_for(@topic, :url => forum_topic_path) do |f| %>
+
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Done", :method => :get %>
+  </div>
+  <% end %>

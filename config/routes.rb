@@ -38,5 +38,10 @@ EGov::Application.routes.draw do
 	resources :posts do
 		resources :comments
 	end
+	resources :forums do
+		resources :topics do
+			resources :replies
+		end
+	end
 
 end

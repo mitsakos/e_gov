@@ -1,0 +1,12 @@
+<%= form_for [:forum, :topic, @reply], :url => forum_topic_reply_path(@forum, @topic)  do |f| %>
+  
+
+  <div class="field">
+    
+    <%= f.text_field :body %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
