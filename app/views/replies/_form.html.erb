@@ -1,12 +1,17 @@
-<%= form_for [:forum, :topic, @reply], :url => forum_topic_reply_path(@forum, @topic)  do |f| %>
-  
+<% message = pluralize(@reply.errors.count, "error") + " prohibited this reply from being saved: <br />" %>
+<% @reply.errors.full_messages.each do |msg| %>
+	<% message = "#{message}#{msg}"+"<br />" %>
+<% end %>
 
-  <div class="field">
-    
-    <%= f.text_field :body %>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= form_for [:forum, :topic, @reply], :url => forum_topic_reply_path(@forum, @topic)  do |f| %>
+	<% if @reply.errors.any? %>
+		<% flash.now[:error] =  message.html_safe %>
+	<% end %>
+	<p>
+		<%= f.text_field :body %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+
 <% end %>

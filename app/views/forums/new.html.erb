@@ -1,5 +1,5 @@
-<h1>New forum</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', forums_path %>
+<div id = "new_forum" class="span6">
+	<span id = "forum_form_legend">New forum</span>
+	<%= render 'form' %>
+	<%= button_to 'Back', forums_path, :method => :get, :class => "btn" %>
+</div>

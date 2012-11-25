@@ -1,6 +1,5 @@
-<h1>Editing forum</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @forum %> |
-<%= link_to 'Back', forums_path %>
+<div id = "edit_forum" class="span6">
+	<span id = "forum_form_legend">Edit forum</span>
+	<%= render 'form' %>
+	<%= button_to 'Back', forums_path, :method => :get, :class => "btn" %>
+</div>

@@ -1,19 +1,26 @@
+<% message = pluralize(@topic.errors.count, "error") + " prohibited this topic from being saved: <br />" %>
+<% @topic.errors.full_messages.each do |msg| %>
+	<% message = "#{message}#{msg}"+"<br />" %>
+<% end %>
+
 <%= form_for(@topic, :url => forum_topics_path) do |f| %>
-
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
+	<% if @topic.errors.any? %>
+		<% flash.now[:error] =  message.html_safe %>
+	<% end %>
+	<p>
+		<%= f.label :title %><br />
+		<%= f.text_field :title %>
+	</p>
   
-   <%= fields_for(@reply) do |cf|%>
-  <div class="field">
-    <%= cf.label :body %><br />
-    <%= cf.text_area(:body, :size => "60x10")%>
-  </div>
-  <% end %>
+	<%= fields_for(@reply) do |cf|%>
+		<p>
+			<%= cf.label :body %><br />
+			<%= cf.text_area(:body, :size => "60x10")%>
+		</p>
+	<% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<p>
+		<%= f.submit "Done", :class => "btn" %>
+	</p>
+
 <% end %>

@@ -6,3 +6,21 @@ th {
 #topic_edit, #topic_destroy {
 	display: inline;
 }
+
+#forum_form_legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 20px;
+  font-size: 21px;
+  line-height: 40px;
+  color: #333333;
+  border: 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+#new_forum, #edit_forum {
+	position:relative;
+	left: 50%;
+	margin-left: -285px;
+}

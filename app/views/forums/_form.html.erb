@@ -1,25 +1,22 @@
+<% message = pluralize(@forum.errors.count, "error") + " prohibited this forum from being saved: <br />" %>
+<% @forum.errors.full_messages.each do |msg| %>
+	<% message = "#{message}#{msg}"+"<br />" %>
+<% end %>
+
 <%= form_for(@forum) do |f| %>
-  <% if @forum.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@forum.errors.count, "error") %> prohibited this forum from being saved:</h2>
+	<% if @forum.errors.any? %>
+		<% flash.now[:error] =  message.html_safe %>
+	<% end %>
+	<p>
+		<%= f.label :title %><br />
+		<%= f.text_field :title %>
+	</p>
+	<p>
+		<%= f.label :description %><br />
+		<%= f.text_area :description %>
+	</p>
+	<p>
+		<%= f.submit "Done", :class => "btn" %>
+	</p>
 
-      <ul>
-      <% @forum.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

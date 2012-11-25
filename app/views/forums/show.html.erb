@@ -17,8 +17,11 @@
 						<%= button_to 'Destroy', [topic.forum, topic], method: :delete, :id => "topic_destroy", data: { confirm: 'Are you sure?' }, :class => "btn btn-danger pull-right" %>
 						<% end %>
 				</td> 
-				<td><%= topic.replies.count - 1 %></td>  
-				<td><%= distance_of_time_in_words_to_now topic.last_post_at %> ago by <%= topic.replies.find(:last).user.username %></td>
+				<td>
+					<%= topic.replies.count - 1 %>
+				</td>  
+				<td><%= distance_of_time_in_words_to_now topic.last_post_at %> ago by <%= topic.replies.find(:last).user.username %>
+				</td>
 			</tr>
 		</tbody>  
 	<% end %>  

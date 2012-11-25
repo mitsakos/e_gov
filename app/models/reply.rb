@@ -1,5 +1,9 @@
 class Reply < ActiveRecord::Base
-  belongs_to :topic
-  belongs_to :user
-  attr_accessible :body
+
+	# Creating assosiations with topics and users
+	belongs_to :topic
+	belongs_to :user
+	# Limiting mass assignment for security
+	attr_accessible :body
+
 end
