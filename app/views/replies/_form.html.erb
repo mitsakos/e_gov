@@ -8,10 +8,10 @@
 		<% flash.now[:error] =  message.html_safe %>
 	<% end %>
 	<p>
-		<%= f.text_field :body %>
+		<%= f.text_area :body %>
 	</p>
 	<p>
-		<%= f.submit %>
+		<%= f.submit "Done", :class => "btn" %>
 	</p>
 
 <% end %>
