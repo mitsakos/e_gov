@@ -1,5 +1,12 @@
 <h2><%= @forum.title %></h2>
-<%= link_to 'Rails forums', forums_path %> &gt; <%= link_to @forum.title, @forum %> <br />
+<ul class="breadcrumb">
+	<li>
+		<%= link_to 'Rails forums', forums_path %> <span class="divider">/</span>
+	</li>
+	<li class="active">
+		<%= @forum.title %>
+	</li>
+</ul>
 <table class = "table table-bordered">
 	<thead>
 		<tr>  

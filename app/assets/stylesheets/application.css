@@ -31,7 +31,18 @@ footer {
 	position: relative;
 	margin-top: -200px;
 	clear:both;
-	background: #ffffff url('/assets/tactile_noise.png') repeat;
+	background-image: linear-gradient(bottom, #111014 0%, #000000 56%);
+	background-image: -o-linear-gradient(bottom, #111014 0%, #000000 56%);
+	background-image: -moz-linear-gradient(bottom, #111014 0%, #000000 56%);
+	background-image: -webkit-linear-gradient(bottom, #111014 0%, #000000 56%);
+	background-image: -ms-linear-gradient(bottom, #111014 0%, #000000 56%);
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, #111014),
+		color-stop(0.56, #000000)
+	);
 }
 html,body {
 	height:100%;
