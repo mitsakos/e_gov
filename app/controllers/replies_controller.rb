@@ -1,45 +1,6 @@
 class RepliesController < ApplicationController
 
 	before_filter :authorize_user, :except => [:index, :show]
-  
-	# GET /replies
-	# GET /replies.json
-	def index
-		@forum = Forum.find(params[:forum_id])
-		@topic = @forum.topics.find(params[:topic_id])
-		@replies = @topic.replies.all
-
-		respond_to do |format|
-			format.html # index.html.erb
-			format.json { render json: @replies }
-		end
-	end
-
-	# GET /replies/1
-	# GET /replies/1.json
-	def show
-		@forum = Forum.find(params[:forum_id])
-		@topic = @forum.topics.find(params[:topic_id])
-		@reply = @topic.replies.find(params[:id])
-
-		respond_to do |format|
-			format.html # show.html.erb
-			format.json { render json: @reply }
-		end
-	end
-
-	# GET /replies/new
-	# GET /replies/new.json
-	def new
-		@forum = Forum.find(params[:forum_id])
-		@topic = @forum.topics.find(params[:topic_id])
-		@reply = @topic.replies.new(params[:reply])
-
-		respond_to do |format|
-			format.html { redirect_to forum_topic_path(@forum, @topic) } # new.html.erb
-			format.json { render json: @reply }
-		end
-	end
 
 	# GET /replies/1/edit
 	def edit

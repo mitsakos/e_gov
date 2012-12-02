@@ -39,8 +39,8 @@ EGov::Application.routes.draw do
 		resources :comments
 	end
 	resources :forums do
-		resources :topics do
-			resources :replies
+		resources :topics, :except => :index do
+			resources :replies, :except => [:index, :show, :new] 
 		end
 	end
 	

@@ -1,18 +1,6 @@
 class TopicsController < ApplicationController
 
 	before_filter :authorize_user, :except => [:index, :show]
-  
-	# GET /topics
-	# GET /topics.json
-	def index
-		@forum = Forum.find(params[:forum_id])
-		@topics = @forum.topics.all
-
-		respond_to do |format|
-			format.html # index.html.erb
-			format.json { render json: @topics }
-		end
-	end
 
 	# GET /topics/1
 	# GET /topics/1.json

@@ -8,7 +8,7 @@
 			<th class = "span3">Last Post</th>
 		</tr>
 	</thead>  
-	<% for topic in @forum.topics %>  
+	<% for topic in @forum.topics.reverse %>  
 		<tbody>
 			<tr>  
 				<td><h4><%= link_to topic.title, forum_topic_path(@forum, topic) %><h4>
