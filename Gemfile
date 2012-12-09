@@ -6,6 +6,8 @@ gem 'mysql2'
 gem 'jquery-rails'
 gem 'bcrypt-ruby', :require => 'bcrypt' # Bcrypt gem needed for user password encryption
 gem 'paperclip', "~> 3.0" # Paperclip gem for uploading images
+gem 'cells' # Cells gem for reusable sidebar components
+gem "watu_table_builder", :require => "table_builder" # Table_builder gem for calendar table creation
 
 # Gems used only in the
 # development environment

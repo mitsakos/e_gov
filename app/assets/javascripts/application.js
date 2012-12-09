@@ -22,3 +22,7 @@ setTimeout(function() {
     	$(this).remove();
     });
 }, 5000);
+
+$(function() {
+	$("#event_ev_date").datetimepicker({ dateFormat: "dd-mm-yy" });
+});
