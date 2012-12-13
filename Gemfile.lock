@@ -60,6 +60,7 @@ GEM
     mime-types (1.19)
     multi_json (1.3.6)
     mysql2 (0.3.11)
+    nokogiri (1.5.5)
     paperclip (3.1.4)
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
@@ -122,6 +123,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   jquery-rails
   mysql2
+  nokogiri
   paperclip (~> 3.0)
   rails (= 3.2.8)
   sass-rails (~> 3.2.3)

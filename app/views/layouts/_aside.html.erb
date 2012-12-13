@@ -1,21 +1,16 @@
 <aside class="span4">
 	<div class="row">
 		<div class="widget span4">
-			<h3>Widget Title</h3>
-			<p>
-				Lorem ipsum incididunt labore proident sit laboris ex ullamco reprehenderit esse consequat deserunt proident Ut proident in velit minim cupidatat in reprehenderit nulla Ut qui dolor dolore sunt dolore aliqua Ut qui.  
-			</p>
+				<%= render_cell :apergeia_feed, :index %>
 		</div><!-- end widget -->
 	</div><!-- end widget row -->
 	<div class="row">
 		<div class="widget span4">
-			<p>
 				<%= render_cell :events, :index %>
 				<% if admin? %>
 					<%= button_to 'Show All', events_path, :method => :get, :class => "btn pull-right" %>
 				<% end %>
 				<br />
-			</p>
 		</div><!-- end widget -->
 	</div><!-- end widget row -->
 </aside><!-- end sidebar -->
