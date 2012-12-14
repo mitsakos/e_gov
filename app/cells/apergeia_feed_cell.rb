@@ -4,8 +4,12 @@ class ApergeiaFeedCell < Cell::Rails
 	require 'open-uri'
 
 	def index
-		@doc = Nokogiri::HTML(open("http://www.apergia.gr/q/index.php?id=today"))
-		render
+		begin
+			@doc = Nokogiri::HTML(open("http://www.apergia.gr/q/index.php?id=today"))
+			render
+		rescue
+			@doc = nil
+		end
 	end
 
 end
