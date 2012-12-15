@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '1.9.3'
 
 # Standard gems used in all environments
 gem 'rails', '3.2.8'
@@ -14,6 +15,11 @@ gem 'nokogiri' # Nokogiri gem for screen scraping
 # development environment
 group :development do
 	gem 'annotate' # Annotate gem for automatic model annotation
+end
+
+group :production do
+	gem 'thin'
+	gem 'pg'
 end
 
 # Gems used only for assets and not required

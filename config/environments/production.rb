@@ -22,7 +22,8 @@ EGov::Application.configure do
 	config.assets.digest = true
 
 	# Don't care if the mailer can't send
-	config.action_mailer.raise_delivery_errors = true
+	config.action_mailer.raise_delivery_errors = false
+	config.action_mailer.perform_deliveries = true
 
 	# Set delivery method
 	config.action_mailer.delivery_method = :smtp
@@ -31,7 +32,7 @@ EGov::Application.configure do
 	config.action_mailer.smtp_settings = {
 		:address              => "smtp.gmail.com",
 		:port                 => 587,
-		:domain               => 'e_gov.com',
+		:domain               => 'e-gov.herokuapp.com',
 		:user_name            => 'e.gov00@gmail.com',
 		:password             => 'egovernment',
 		:authentication       => 'plain',
@@ -39,7 +40,7 @@ EGov::Application.configure do
 	}
 
 	# Default host
-	config.action_mailer.default_url_options = { :host => "e_gov" }
+	config.action_mailer.default_url_options = { :host => "e-gov.herokuapp.com" }
 
 	# Paperclip path to imagemagick
 	Paperclip.options[:command_path] = "/usr/bin/convert"
