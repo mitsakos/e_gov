@@ -17,7 +17,7 @@
 			<th class = "span9">Message</th>  
 		</tr>
 	</thead>  
-	<% for reply in @topic.replies %>
+	<% for reply in @reply %>
 		<tbody>
 			<tr>  
 				<td>
@@ -35,6 +35,7 @@
 		</tbody>  
 	<% end %>  
 </table>
+<%= paginate @reply %>
 
 <%= form_for([@forum, @topic, @topic.replies.build])  do |f| %>  
 	<% if current_user %>

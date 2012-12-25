@@ -36,6 +36,17 @@ EGov::Application.routes.draw do
 	resources :sessions
 	resources :password_resets
 	resources :events
+	# Producing Kaminari friendly URLs
+	resources :posts do
+		get 'page/:page', :action => :index, :on => :collection
+	end
+	resources :forums do
+		get 'page/:page', :action => :show, :on => :collection
+		resources :topics do
+			get 'page/:page', :action => :show, :on => :collection
+		end
+	end
+
 	resources :posts do
 		resources :comments
 	end

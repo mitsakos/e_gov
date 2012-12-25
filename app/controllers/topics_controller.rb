@@ -7,6 +7,7 @@ class TopicsController < ApplicationController
 	def show
 		@forum = Forum.find(params[:forum_id])
 		@topic = @forum.topics.find(params[:id])
+		@reply = @topic.replies.order("created_at DESC").page(params[:page]).per(15)
 
 		respond_to do |format|
 			format.html # show.html.erb

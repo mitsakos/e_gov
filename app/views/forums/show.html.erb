@@ -15,7 +15,7 @@
 			<th class = "span3">Last Post</th>
 		</tr>
 	</thead>  
-	<% for topic in @forum.topics.reverse %>  
+	<% for topic in @topics %>  
 		<tbody>
 			<tr>  
 				<td><h4><%= link_to topic.title, forum_topic_path(@forum, topic) %><h4>
@@ -33,6 +33,7 @@
 		</tbody>  
 	<% end %>  
 </table>
+<%= paginate @topics %>
 <% if current_user %>
 	<p><%= button_to "New Topic", new_forum_topic_url(@forum), :class => "btn", :method => :get %></p>
 <% end %>

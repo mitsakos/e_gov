@@ -17,6 +17,7 @@ class ForumsController < ApplicationController
 	# GET /forums/1.json
 	def show
 		@forum = Forum.find(params[:id])
+		@topics = @forum.topics.order("created_at DESC").page(params[:page]).per(10)
 
 		respond_to do |format|
 			format.html # show.html.erb
