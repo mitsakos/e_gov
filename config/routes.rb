@@ -55,5 +55,8 @@ EGov::Application.routes.draw do
 			resources :replies, :except => [:index, :show, :new] 
 		end
 	end
+	resources :polls do
+		put 'vote', :on => :member
+	end
 	
 end

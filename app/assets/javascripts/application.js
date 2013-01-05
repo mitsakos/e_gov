@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery-ui-1.8.23.custom.min
 //= require bootstrap
+//= require highcharts
 //= require_tree .
 
 // Hide notifications with slide-up effect (blind) after 5 seconds

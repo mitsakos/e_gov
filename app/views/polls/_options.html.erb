@@ -1,0 +1,8 @@
+<div class = "poll_options">
+	<%= f.label :option %>
+	<%= f.text_field :option %>
+	<% if params[:action] == "new" %>
+		<%= f.hidden_field :_destroy, :class => "pull-left" %>
+		<%= link_to_remove_fields "remove", f %>
+	<% end %>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121209124653) do
+ActiveRecord::Schema.define(:version => 20121231142112) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -41,6 +41,35 @@ ActiveRecord::Schema.define(:version => 20121209124653) do
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "poll_options", :force => true do |t|
+    t.string   "option"
+    t.integer  "poll_id"
+    t.integer  "poll_responses_count", :default => 0
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+  end
+
+  add_index "poll_options", ["poll_id"], :name => "index_poll_options_on_poll_id"
+
+  create_table "poll_responses", :force => true do |t|
+    t.integer  "poll_id"
+    t.integer  "user_id"
+    t.integer  "poll_option_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "poll_responses", ["poll_id"], :name => "index_poll_responses_on_poll_id"
+  add_index "poll_responses", ["poll_option_id"], :name => "index_poll_responses_on_poll_option_id"
+  add_index "poll_responses", ["user_id"], :name => "index_poll_responses_on_user_id"
+
+  create_table "polls", :force => true do |t|
+    t.string   "question"
+    t.integer  "votes_count", :default => 0
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   create_table "posts", :force => true do |t|
