@@ -9,10 +9,16 @@ class CommentsController < ApplicationController
 		@post = Post.find(params[:post_id])
 		@comment = @post.comments.new(params[:comment])
 		@comment.user_id = current_user.id
-		@comment.save
-		respond_to do |format|
-			format.html { redirect_to post_path(@post) }
-			format.js
+		if @comment.save
+			respond_to do |format|
+				format.html { redirect_to post_path(@post) }
+				format.js
+			end
+		else
+			respond_to do |format|
+				format.html { redirect_to post_path(@post), alert: 'Invalid Comment' }
+				format.js { render :js => "alert('Invalid Comment');" }
+			end
 		end
 	end
 

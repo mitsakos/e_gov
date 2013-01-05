@@ -25,9 +25,18 @@
 						<% end %>
 				</td> 
 				<td>
-					<%= topic.replies.count - 1 %>
+					<% if topic.replies.count == 0 %>
+						empty
+					<% else %>
+						<%= topic.replies.count - 1 %>
+					<% end %>
 				</td>  
-				<td><%= distance_of_time_in_words_to_now topic.last_post_at %> ago by <%= topic.replies.find(:last).user.username %>
+				<td>
+					<% if topic.replies.count == 0 %>
+						currently empty
+					<% else %>
+						<%= distance_of_time_in_words_to_now topic.last_post_at %> ago by <%= topic.replies.find(:last).user.username %>
+					<% end %>
 				</td>
 			</tr>
 		</tbody>  

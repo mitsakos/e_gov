@@ -6,4 +6,7 @@ class Comment < ActiveRecord::Base
 	# Limiting mass assignment for security
 	attr_accessible :body
 
+	# Form input validations
+	validates :body, :presence => true
+
 end

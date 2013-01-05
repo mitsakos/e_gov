@@ -22,7 +22,7 @@ class RepliesController < ApplicationController
 				format.html { redirect_to forum_topic_path(@forum, @topic), notice: 'Reply was successfully created.' }
 				format.json { render json: @reply, status: :created, location: @reply }
 			else
-				format.html { render action: "new" }
+				format.html { redirect_to forum_topic_path(@forum, @topic), alert: 'Reply was invalid.' }
 				format.json { render json: @reply.errors, status: :unprocessable_entity }
 			end
 		end
