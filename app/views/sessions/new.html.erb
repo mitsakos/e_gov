@@ -1,23 +1,4 @@
-<div id = "login_form" class="span4">
-	<%= form_tag sessions_path do %>
-		<legend>Log in</legend>
-		<p>
-			<%= label_tag :email %><br />
-			<%= text_field_tag :email, params[:email] %>
-		</p>
-		<p>
-			<%= label_tag :password %><br />
-			<%= password_field_tag :password %>
-		</p>
-		<p>
-			<%= link_to "forgotten password?", new_password_reset_path %>
-		</p>
-		<p>
-			<%= check_box_tag :remember_me, 1, params[:remember_me], :class => "checkbox"%>
-			<%= label_tag :remember_me, nil, :class => "checkbox", :id => "remember_label"  %>
-		</p>
-		<p>
-			<%= submit_tag "Log in", :class => "btn" %>
-		</p>
-	<% end %>
+<div id = "login_form" class="span6">
+	<span id = "login_form_legend">Log In</span>
+	<%= render 'form' %>
 </div>

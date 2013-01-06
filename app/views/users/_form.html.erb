@@ -1,0 +1,29 @@
+<% message = pluralize(@user.errors.count, "error") + " prohibited this user from being created: <br />" %>
+<% @user.errors.full_messages.each do |msg| %>
+	<% message = "#{message}#{msg}"+"<br />" %>
+<% end %>
+
+<%= form_for @user do |f| %>
+	<% if @user.errors.any? %>
+		<% flash.now[:error] =  message.html_safe %>
+	<% end %>
+	<p>
+		<%= f.label :username %><br />
+		<%= f.text_field :username %>
+	</p>
+	<p>
+		<%= f.label :email %><br />
+		<%= f.text_field :email %>
+	</p>
+	<p>
+		<%= f.label :password %><br />
+		<%= f.password_field :password %>
+	</p>
+	<p>
+		<%= f.label :password_confirmation %><br />
+		<%= f.password_field :password_confirmation %>
+	</p>
+	<p>
+		<%= f.submit "Create User", :class => "btn" %>
+	</p>
+<% end %>

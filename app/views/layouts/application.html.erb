@@ -41,7 +41,7 @@
 										</li>
 									<% else %>
 										<li>
-											<%= link_to log_in_path do %>
+											<%= link_to("#loginModal", :id => 'login', "data-toggle" => "modal") do %>
 												<i class="icon-check"></i> Log in
 											<% end %>
 										</li>
@@ -57,6 +57,7 @@
 	  				</div><!-- end navbar container -->
 				</div><!-- end inner navbar -->
 			</div><!-- end navbar -->
+			<%= render 'layouts/modals' %>
 			<div id = "main" class = "container clear-top">
 				<%= yield %>
 			</div><!-- end container -->
