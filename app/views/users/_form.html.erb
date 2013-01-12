@@ -3,7 +3,7 @@
 	<% message = "#{message}#{msg}"+"<br />" %>
 <% end %>
 
-<%= form_for @user do |f| %>
+<%= form_for(@user,  :html => { :multipart => true }) do |f| %>
 	<% if @user.errors.any? %>
 		<% flash.now[:error] =  message.html_safe %>
 	<% end %>
@@ -16,6 +16,9 @@
 		<%= f.text_field :email %>
 	</p>
 	<p>
+		<%= f.file_field :avatar, :class => "btn" %>
+	</p>
+	<p>
 		<%= f.label :password %><br />
 		<%= f.password_field :password %>
 	</p>
@@ -24,6 +27,6 @@
 		<%= f.password_field :password_confirmation %>
 	</p>
 	<p>
-		<%= f.submit "Create User", :class => "btn" %>
+		<%= f.submit "Done", :class => "btn" %>
 	</p>
 <% end %>

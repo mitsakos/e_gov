@@ -35,6 +35,12 @@
 								<ul class="dropdown-menu">
 									<% if current_user %>
 										<li>
+											<%= link_to profile_path do %>
+												<i class="icon-home"></i> Profile
+											<% end %>
+										</li>
+										<li class = "divider"></li>
+										<li>
 											<%= link_to log_out_path do %>
 												<i class="icon-share"></i> Log out
 											<% end %>

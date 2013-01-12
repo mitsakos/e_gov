@@ -24,9 +24,17 @@ class User < ActiveRecord::Base
 	has_many :topics
 	has_many :replies
 	# Limiting mass assignment for security
-	attr_accessible :username, :email, :password, :password_confirmation
+	attr_accessible :username, :email, :password, :password_confirmation, :avatar
 	# Making needed attributes available
 	attr_accessor :password
+
+	# Papaerclip addition
+	has_attached_file :avatar, :styles => { :small => "40x40>", :large => "200x200>" },
+								:default_url => '/assets/default-avatar-:style.png'
+
+	# Paperclip validations
+	validates_attachment_size :avatar, :less_than => 5.megabytes
+	validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png']
 
 	# Method calls before creating and saving users
 	before_create { generate_token(:auth_token) }

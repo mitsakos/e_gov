@@ -2,13 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
-#signup_form {
+#new_user, #edit_user {
 	position:relative;
 	left: 50%;
 	margin-left: -185px;
 }
 
-#signup_form_legend {
+#user_form_legend {
 	display: block;
 	width: 100%;
 	padding: 0;
@@ -18,4 +18,28 @@
 	color: #333333;
 	border: 0;
 	border-bottom: 1px solid #e5e5e5;
+}
+
+#profile_row {
+	margin-top: 20px;
+}
+
+#avatar {
+	margin-right: 20px;
+	margin-bottom: 20px;
+	margin-top: 10px;
+}
+
+#username, #info {
+	margin-bottom: 5px;
+}
+#user_accordion {
+	margin-top: 20px;
+}
+
+#user_accordion_table {
+	margin: 0px;
+}
+#user_accordion_inner {
+	padding: 0px;
 }

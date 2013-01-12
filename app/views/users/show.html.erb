@@ -1,0 +1,104 @@
+<div class="row" id = "profile_row">
+	<div class="span8">
+
+		<%= image_tag @user.avatar.url(:large), :class => "img-polaroid pull-left", :id => "avatar" %>
+		<h2 id = "username"><%= @user.username %></h2>[<%= link_to "edit profile", edit_user_path(@user) %>]<br />
+		<h4 id = "info">Info:</h4> <br />
+		E-mail: <%= @user.email %><br />
+		Account Creation: <%= @user.created_at %>
+
+		<div class="accordion" id="user_accordion">
+			<h4>Statistics:</h4>
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#user_accordion" href="#comments_collapse">
+						Comments (<%= @user.comments.count %>)
+					</a>
+				</div>
+				<div id="comments_collapse" class="accordion-body collapse">
+					<div class="accordion-inner" id = "user_accordion_inner">
+						<table class = "table table-striped" id = "user_accordion_table">
+							<tbody>
+								<% for comment in @user.comments do %>
+									<tr>
+										<td>
+											<%= comment.body %> in <%= link_to comment.post.title, post_path(comment.post, :anchor => "comment_#{comment.id}") %>
+										</td>
+									</tr>
+								<% end %>
+							</tbody>
+						</table>
+      				</div>
+    			</div>
+  			</div>
+  			<div class="accordion-group">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#user_accordion" href="#topics_collapse">
+						Topics (<%= @user.topics.count %>)
+					</a>
+				</div>
+				<div id="topics_collapse" class="accordion-body collapse">
+					<div class="accordion-inner" id = "user_accordion_inner">
+						<table class = "table table-striped" id = "user_accordion_table">
+							<tbody>
+								<% for topic in @user.topics do %>
+									<tr>
+										<td>
+											<%= topic.title %> in <%= link_to topic.forum.title, forum_path(topic.forum) %>
+										</td>
+									</tr>
+								<% end %>
+							</tbody>
+						</table>
+      				</div>
+    			</div>
+  			</div>
+  			<div class="accordion-group">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#user_accordion" href="#replies_collapse">
+						Topic Posts (<%= @user.replies.count %>)
+					</a>
+				</div>
+				<div id="replies_collapse" class="accordion-body collapse">
+					<div class="accordion-inner" id = "user_accordion_inner">
+						<table class = "table table-striped" id = "user_accordion_table">
+							<tbody>
+								<% for reply in @user.replies do %>
+									<tr>
+										<td>
+											<%= reply.body %> in <%= link_to reply.topic.title, forum_topic_path(reply.topic.forum, reply.topic) %> > <%= link_to reply.topic.forum.title, forum_path(reply.topic.forum) %>
+										</td>
+									</tr>
+								<% end %>
+							</tbody>
+						</table>
+      				</div>
+    			</div>
+  			</div>
+  			<div class="accordion-group">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#user_accordion" href="#polls_collapse">
+						Votes (<%= @user.poll_responses.count %>)
+					</a>
+				</div>
+				<div id="polls_collapse" class="accordion-body collapse">
+					<div class="accordion-inner" id = "user_accordion_inner">
+						<table class = "table table-striped" id = "user_accordion_table">
+							<tbody>
+								<% for poll_response in @user.poll_responses do %>
+									<tr>
+										<td>
+											<%= poll_response.poll.question %> > <%= link_to poll_response.poll_option.option, poll_path(poll_response.poll) %>
+										</td>
+									</tr>
+								<% end %>
+							</tbody>
+						</table>
+      				</div>
+    			</div>
+  			</div>
+		</div>
+
+	</div>
+	<%= render 'layouts/aside' %>
+</div>
