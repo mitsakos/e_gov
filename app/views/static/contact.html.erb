@@ -1,0 +1,45 @@
+<div class="row" id = "contact_row">
+	<div class="span8">
+		<h2>Contact Us</h2>
+		<div class = "well" id = "contact_well">
+			<p>
+			<b>Δημαρχιακό Μέγαρο</b><br />
+			Αθηνάς 63, Πλατεία Εθνικής Αντίστασης (Κοτζιά), Τ.Κ. 10552<br />
+			Τηλ. 210 3722001<br />
+			</p>
+			<p>
+			<b>Δημαρχείο</b><br />
+			Λιοσίων 22, Τ.Κ. 10438<br />
+			Τηλ. 210 5277000
+			</p>
+		</div>
+		
+
+		<div id = "contact_form" class="span6">
+			<span id = "contact_form_legend">Contact Form</span>
+			<%= form_tag contact_path, :method => :post do %>
+				<p>
+					<%= label_tag :subject %>
+					<%= text_field_tag :subject, params[:subject] %>
+				</p>
+				<p>
+					<%= label_tag :name %>
+					<%= text_field_tag :name, params[:name] %>
+				</p>
+				<p>
+					<%= label_tag :email %>
+					<%= text_field_tag :email, params[:email] %>
+				</p>
+				<p>
+					<%= label_tag :body %>
+					<%= text_area_tag :body, params[:body] %>
+				</p>
+				<p>
+					<%= submit_tag "Done", :class => "btn" %>
+				</p>
+			<% end %>
+		</div>
+
+	</div><!-- end main area -->
+	<%= render 'layouts/aside' %>
+</div><!-- end main row -->

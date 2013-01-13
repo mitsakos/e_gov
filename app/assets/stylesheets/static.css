@@ -1,0 +1,25 @@
+#links_row, #contact_row {
+	margin-top: 20px;
+}
+
+#contact_form_legend {
+	display: block;
+	width: 85%;
+	padding: 0;
+	margin-bottom: 20px;
+	font-size: 21px;
+	line-height: 40px;
+	color: #333333;
+	border: 0;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+#contact_form {
+	position:relative;
+	left: 50%;
+	margin-left: -285px;
+}
+
+#contact_well {
+	text-align: center;
+}

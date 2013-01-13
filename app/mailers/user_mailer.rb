@@ -11,5 +11,13 @@ class UserMailer < ActionMailer::Base
 		@user = user
 		mail(:to => user.email, :subject => "Password Reset", :from => "webmaster@e_gov.com")
 	end
+
+	def contact(subject, name, email, body)
+		@subject = subject
+		@name = name
+		@email = email
+		@body = body
+		mail(:to => "jim_metal@yahoo.com", :subject => @subject, :from => "webmaster@e_gov.com")
+	end
 	
 end
