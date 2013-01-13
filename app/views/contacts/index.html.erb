@@ -22,7 +22,7 @@
 			<span id = "contact_form_legend">Contact Form</span>
 			<%= form_for @contact do |f| %>
 				<% if @contact.errors.any? %>
-					<% flash[:error] =  message.html_safe %>
+					<% flash.now[:error] =  message.html_safe %>
 				<% end %>
 				<p>
 					<%= f.label :subject %>
