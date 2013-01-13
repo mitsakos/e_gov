@@ -14,28 +14,34 @@
 			</p>
 		</div>
 		
-
+		<% message = pluralize(@contact.errors.count, "error") + " prohibited this message from being sent: <br />" %>
+		<% @contact.errors.full_messages.each do |msg| %>
+			<% message = "#{message}#{msg}"+"<br />" %>
+		<% end %>
 		<div id = "contact_form" class="span6">
 			<span id = "contact_form_legend">Contact Form</span>
-			<%= form_tag contact_path, :method => :post do %>
+			<%= form_for @contact do |f| %>
+				<% if @contact.errors.any? %>
+					<% flash[:error] =  message.html_safe %>
+				<% end %>
 				<p>
-					<%= label_tag :subject %>
-					<%= text_field_tag :subject, params[:subject] %>
+					<%= f.label :subject %>
+					<%= f.text_field :subject %>
 				</p>
 				<p>
-					<%= label_tag :name %>
-					<%= text_field_tag :name, params[:name] %>
+					<%= f.label :name %>
+					<%= f.text_field :name %>
 				</p>
 				<p>
-					<%= label_tag :email %>
-					<%= text_field_tag :email, params[:email] %>
+					<%= f.label :email %>
+					<%= f.text_field :email %>
 				</p>
 				<p>
-					<%= label_tag :body %>
-					<%= text_area_tag :body, params[:body] %>
+					<%= f.label :body %>
+					<%= f.text_area :body %>
 				</p>
 				<p>
-					<%= submit_tag "Done", :class => "btn" %>
+					<%= f.submit "Done", :class => "btn" %>
 				</p>
 			<% end %>
 		</div>

@@ -11,6 +11,7 @@ gem 'cells' # Cells gem for reusable sidebar components
 gem 'watu_table_builder', :require => "table_builder" # Table_builder gem for calendar table creation
 gem 'nokogiri' # Nokogiri gem for screen scraping
 gem 'kaminari' # Kaminari gem for pagination
+gem 'active_attr' # Active_attr gem for tableless models with active record behaviour
 
 # Gems used only in the
 # development environment
