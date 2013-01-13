@@ -11,11 +11,16 @@ class ContactsController < ApplicationController
 		email = params[:contact][:email]
 		body = params[:contact][:body]
 		
-		if @contact.valid? && UserMailer.contact(subject, name, email, body).deliver
-			flash[:notice] = "Your message has been sent!"
-			redirect_to contact_url 
+		if verify_recaptcha() 
+			if @contact.valid? && UserMailer.contact(subject, name, email, body).deliver
+				flash[:notice] = "Your message has been sent!"
+				redirect_to contacts_url
+			else
+				render "index" 
+			end
 		else
-			render "index" 
+			@contact.errors[:base] << "Captcha is wrong!"
+			render "index"
 		end
 	end
 

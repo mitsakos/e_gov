@@ -12,6 +12,7 @@ gem 'watu_table_builder', :require => "table_builder" # Table_builder gem for ca
 gem 'nokogiri' # Nokogiri gem for screen scraping
 gem 'kaminari' # Kaminari gem for pagination
 gem 'active_attr' # Active_attr gem for tableless models with active record behaviour
+gem "recaptcha", :require => "recaptcha/rails" # Recaptcha gem for bot protection
 
 # Gems used only in the
 # development environment

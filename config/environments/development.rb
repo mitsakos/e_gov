@@ -55,5 +55,9 @@ EGov::Application.configure do
 
 	# Expands the lines which load the assets
 	config.assets.debug = true
+
+	# Recaptcha keys
+	ENV['RECAPTCHA_PUBLIC_KEY'] = '6Lcvf9sSAAAAAHPm-XJXknce9hhjQX2Zn8e4AdKv'
+	ENV['RECAPTCHA_PRIVATE_KEY'] = '6Lcvf9sSAAAAAISCcMkoQZVd6YjaxjDh1eAXEkV7'
 	
 end

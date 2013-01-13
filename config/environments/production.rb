@@ -89,5 +89,9 @@ EGov::Application.configure do
 	# Log the query plan for queries taking more than this (works
 	# with SQLite, MySQL, and PostgreSQL)
 	# config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+	# Recaptcha keys
+	ENV['RECAPTCHA_PUBLIC_KEY'] = '6Lcvf9sSAAAAAHPm-XJXknce9hhjQX2Zn8e4AdKv'
+	ENV['RECAPTCHA_PRIVATE_KEY'] = '6Lcvf9sSAAAAAISCcMkoQZVd6YjaxjDh1eAXEkV7'
 	
 end
