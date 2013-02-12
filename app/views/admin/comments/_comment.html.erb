@@ -1,0 +1,15 @@
+<%= div_for comment do %>
+	<p>
+		<h5><%= comment.user.username %></h5>
+		<%= comment.body %>
+	</p>
+    <% if admin? || is_owner(comment) %>
+    	<div id = "destroy_comment">
+			<%= button_to 'Destroy Comment', [comment.post, comment],
+				               :confirm => 'Are you sure?',
+				               :method => :delete,
+				               :class => "btn btn-small btn-danger", 
+				               :remote => true %>
+		</div>
+	<% end %>
+<% end %>

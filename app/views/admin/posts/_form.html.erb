@@ -1,0 +1,24 @@
+<% message = pluralize(@post.errors.count, "error") + " prohibited this post from being saved: <br />" %>
+<% @post.errors.full_messages.each do |msg| %>
+	<% message = "#{message}#{msg}"+"<br />" %>
+<% end %>
+
+<%= form_for([:admin,@post],  :html => { :multipart => true, :id => 'admin_post_form' }) do |f| %>
+	<% if @post.errors.any? %>
+		<% flash.now[:error] =  message.html_safe %>
+	<% end %>
+	<p>
+		<%= f.label :title %><br />
+		<%= f.text_field :title %>
+	</p>
+	<p>
+		<%= f.label :content %><br />
+		<%= f.text_area :content %>
+	</p>
+	<p>
+		<%= f.file_field :photo, :class => "btn" %>
+	</p>
+	<p>
+		<%= f.submit "Done", :class => "btn" %>
+	</p>
+<% end %>

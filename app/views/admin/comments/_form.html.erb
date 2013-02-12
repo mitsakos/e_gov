@@ -1,0 +1,11 @@
+<div id = "comment_form",  class="span5">
+	<%= form_for(([:admin, @post, @post.comments.build]), :remote => true) do |f| %>
+		<legend>Add a comment</legend>
+		<p>
+			<%= f.text_area :body, :id => "comment_textarea" %>
+		</p>
+		<p>
+			<%= f.submit "Create Comment", :class => "btn btn-small"  %>
+		</p>
+	<% end %>
+</div>

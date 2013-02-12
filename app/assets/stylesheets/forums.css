@@ -1,4 +1,4 @@
-th {
+#forums_list th, #topics_list th, #replies_list th {
 	background-color:#111111;
 	color:#ffffff;
 }

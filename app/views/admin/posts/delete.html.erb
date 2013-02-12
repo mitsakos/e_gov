@@ -1,0 +1,54 @@
+<div class = "dashboard_container">
+    <div class = "well dashboard_navigation">
+        <ul id = "admin_nav_list">
+            <li><%= link_to 'Manage Users' %></li>
+            <li><%= link_to 'Manage Posts', admin_posts_path %></li>
+            <li><%= link_to 'Manage Comments' %></li>
+            <li><%= link_to 'Manage Forums' %></li>
+            <li><%= link_to 'Manage Topics' %></li>
+            <li><%= link_to 'Manage Forum Posts' %></li>
+            <li><%= link_to 'Manage Events' %></li>
+            <li><%= link_to 'Manage Polls' %></li>
+        </ul>
+    </div>
+
+
+    <div class = "dashboard_content">
+        <h2 class = "dashboard_header">Edit  Post <%= @post.title %></h2>
+        <ul class = "breadcrumb well">
+            <li><%= link_to "Dashboard", admin_path %> <span class="divider">/</span></li>
+            <li><%= link_to "Posts", admin_posts_path %> <span class="divider">/</span></li>
+            <li class = "active"><%= link_to "Delete Post", delete_admin_post_path(@post) %></li>
+        </ul>
+        <ul class="nav nav-tabs">
+            <li>
+            	<%= link_to admin_post_path(@post) do %>
+            		<i class = "icon-info-sign"></i> Show
+            	<% end %>
+            </li>
+            <li>
+            	<%= link_to edit_admin_post_path(@post) do %>
+            		<i class = "icon-pencil"></i> Edit Post</a>
+            	<% end%>
+            </li>
+            <li class="active">
+                <%= link_to delete_admin_post_path(@post) do %>
+                    <i class = "icon-remove"></i> Delete Post</a>
+                <% end%>
+            </li>
+        </ul>
+
+        <div class="tab-content clear">
+            <div class="tab-pane active" id="admin_delete_post">
+            	<h5>Are you sure you want to delete Post "<%= @post.title %>"? The following comments will be deleted too:</h5>
+                <% @rel_comments.each do |rel_comment| %>
+                    <span class = "label">Comment </span>&nbsp;<%= rel_comment.body %><br />
+                <% end %><br />
+                <div>
+                    <%= button_to 'Yes, delete it', admin_post_path(@post), :class => "btn btn-danger pull-left", :id => "confirm_delete", :method => :delete %>
+                    <%= button_to 'Cancel', admin_post_path(@post), :class => "btn", :method => :get %>
+                </div>
+            </div><br />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div class = "dashboard_container">
+    <div class = "well dashboard_navigation">
+        <ul id = "admin_nav_list">
+            <li><%= link_to 'Manage Users' %></li>
+            <li><%= link_to 'Manage Posts', admin_posts_path %></li>
+            <li><%= link_to 'Manage Comments' %></li>
+            <li><%= link_to 'Manage Forums' %></li>
+            <li><%= link_to 'Manage Topics' %></li>
+            <li><%= link_to 'Manage Forum Posts' %></li>
+            <li><%= link_to 'Manage Events' %></li>
+            <li><%= link_to 'Manage Polls' %></li>
+        </ul>
+    </div>
+
+
+    <div class = "dashboard_content">
+        <h2 class = "dashboard_header">New Post</h2>
+        <ul class = "breadcrumb well">
+            <li><%= link_to "Dashboard", admin_path %> <span class="divider">/</span></li>
+            <li><%= link_to "Posts", admin_posts_path %> <span class="divider">/</span></li>
+            <li class = "active"><%= link_to "New Post", new_admin_post_path %></li>
+        </ul>
+        <ul class="nav nav-tabs">
+            <li>
+            	<%= link_to admin_posts_path do %>
+            		<i class = "icon-list"></i> List
+            	<% end %>
+            </li>
+            <li class="active">
+            	<%= link_to new_admin_post_path do %>
+            		<i class = "icon-plus"></i> Add New</a>
+            	<% end%>
+            </li>
+        </ul>
+
+        <div class="tab-content clear">
+            <div class="tab-pane active" id="admin_new_post">
+            	<%= render 'form' %>
+            </div><br />
+        </div>
+    </div>
+</div>

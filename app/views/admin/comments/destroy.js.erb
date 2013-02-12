@@ -1,0 +1,4 @@
+// Eliminate the comment with effect
+$('#<%= dom_id(@comment) %>').effect('blind', {mode: 'hide'});
+// Replace the count of comments
+$("#comments_count").html("<%= pluralize(@comment.post.comments.count, 'Comment', 'Comments') %>");

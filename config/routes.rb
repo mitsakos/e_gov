@@ -62,5 +62,14 @@ EGov::Application.routes.draw do
 	resources :polls do
 		put 'vote', :on => :member
 	end
+	namespace :admin do
+		get '', to: 'dashboard#index', as: '/'
+		resources :posts do
+			member do
+				get 'delete'
+			end
+		end
+		resources :comments
+	end
 	
 end
