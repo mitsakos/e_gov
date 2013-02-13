@@ -14,39 +14,36 @@
 
 
     <div class = "dashboard_content">
-        <h2 class = "dashboard_header">Delete Post <%= @post.title %></h2>
+        <h2 class = "dashboard_header">Delete Comment #<%= @comment.id %></h2>
         <ul class = "breadcrumb well">
             <li><%= link_to "Dashboard", admin_path %> <span class="divider">/</span></li>
-            <li><%= link_to "Posts", admin_posts_path %> <span class="divider">/</span></li>
-            <li class = "active"><%= link_to "Delete Post", delete_admin_post_path(@post) %></li>
+            <li><%= link_to "Comments", admin_comments_path %> <span class="divider">/</span></li>
+            <li class = "active"><%= link_to "Delete Comment", delete_admin_comment_path(@comment) %></li>
         </ul>
         <ul class="nav nav-tabs">
             <li>
-            	<%= link_to admin_post_path(@post) do %>
+            	<%= link_to admin_comment_path(@comment) do %>
             		<i class = "icon-info-sign"></i> Show
             	<% end %>
             </li>
             <li>
-            	<%= link_to edit_admin_post_path(@post) do %>
-            		<i class = "icon-pencil"></i> Edit Post</a>
+            	<%= link_to edit_admin_comment_path(@comment) do %>
+            		<i class = "icon-pencil"></i> Edit Comment</a>
             	<% end%>
             </li>
             <li class="active">
-                <%= link_to delete_admin_post_path(@post) do %>
-                    <i class = "icon-remove"></i> Delete Post</a>
+                <%= link_to delete_admin_comment_path(@comment) do %>
+                    <i class = "icon-remove"></i> Delete Comment</a>
                 <% end%>
             </li>
         </ul>
 
         <div class="tab-content clear">
             <div class="tab-pane active" id="admin_delete_post">
-            	<h5>Are you sure you want to delete Post "<%= @post.title %>"? The following comments will be deleted too:</h5>
-                <% @rel_comments.each do |rel_comment| %>
-                    <span class = "label">Comment </span>&nbsp;<%= rel_comment.body %><br />
-                <% end %><br />
+            	<h5>Are you sure you want to delete Comment "<%= @comment.body %>"?</h5>
                 <div>
-                    <%= button_to 'Yes, delete it', admin_post_path(@post), :class => "btn btn-danger pull-left", :id => "confirm_delete", :method => :delete %>
-                    <%= button_to 'Cancel', admin_post_path(@post), :class => "btn", :method => :get %>
+                    <%= button_to 'Yes, delete it', admin_comment_path(@comment), :class => "btn btn-danger pull-left", :id => "confirm_delete", :method => :delete %>
+                    <%= button_to 'Cancel', admin_comment_path(@comment), :class => "btn", :method => :get %>
                 </div>
             </div><br />
         </div>

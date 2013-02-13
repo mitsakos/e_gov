@@ -14,41 +14,33 @@
 
 
     <div class = "dashboard_content">
-        <h2 class = "dashboard_header">Post <%= @post.title %></h2>
+        <h2 class = "dashboard_header">Edit  Comment #<%= @comment.id %></h2>
         <ul class = "breadcrumb well">
             <li><%= link_to "Dashboard", admin_path %> <span class="divider">/</span></li>
-            <li><%= link_to "Posts", admin_posts_path %> <span class="divider">/</span></li>
-            <li><%= @post.title %>
+            <li><%= link_to "Comments", admin_comments_path %> <span class="divider">/</span></li>
+            <li class = "active"><%= link_to "Edit Comment", edit_admin_comment_path(@comment) %></li>
         </ul>
         <ul class="nav nav-tabs">
-            <li class="active">
-            	<%= link_to admin_post_path(@post) do %>
+            <li>
+            	<%= link_to admin_comment_path(@comment) do %>
             		<i class = "icon-info-sign"></i> Show
             	<% end %>
             </li>
-            <li>
-            	<%= link_to edit_admin_post_path(@post) do %>
-            		<i class = "icon-pencil"></i> Edit Post</a>
+            <li class="active">
+            	<%= link_to edit_admin_comment_path(@comment) do %>
+            		<i class = "icon-pencil"></i> Edit Comment</a>
             	<% end%>
             </li>
             <li>
-                <%= link_to delete_admin_post_path(@post) do %>
-                    <i class = "icon-remove"></i> Delete Post</a>
+                <%= link_to delete_admin_comment_path(@comment) do %>
+                    <i class = "icon-remove"></i> Delete Comment</a>
                 <% end%>
             </li>
         </ul>
 
         <div class="tab-content clear">
-            <div class="tab-pane active" id="post_list">
-            	<div id = "post_show">
-					<div id = "admin_image_small"> 
-						<%= image_tag @post.photo.url(:small), :class => "img-polaroid" %>
-					</div>
-					<h3><%= @post.title %></h3><br />
-					<%= @post.content %><br /><br />
-					<b>Author: </b><%= @post.user.username %><br />
-					<b>Created: </b><%= time_ago_in_words(@post.created_at) %> ago
-				</div><!-- end post_show -->
+            <div class="tab-pane active" id="admin_edit_comment">
+            	<%= render 'form' %>
             </div><br />
         </div>
     </div>

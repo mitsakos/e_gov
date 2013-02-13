@@ -4,7 +4,7 @@ class Comment < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :post
 	# Limiting mass assignment for security
-	attr_accessible :body
+	attr_accessible :body, :post_id
 
 	# Form input validations
 	validates :body, :presence => true

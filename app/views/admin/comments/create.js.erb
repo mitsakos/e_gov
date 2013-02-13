@@ -1,8 +1,0 @@
-// Add the new comment to the bottom of the comments list
-$("#comments").append("<%= escape_javascript(render(:partial => @comment)) %>");
-// Slide down the new comment
-$('#<%= dom_id(@comment) %>').effect('blind', {mode: 'show'});
-// Replace the count of comments
-$("#comments_count").html("<%= pluralize(@comment.post.comments.count, 'Comment', 'Comments') %>");
-// Reset the comment form
-$("#comment_form > form")[0].reset();

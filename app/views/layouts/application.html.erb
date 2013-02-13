@@ -36,6 +36,13 @@
 								</a>
 								<ul class="dropdown-menu">
 									<% if current_user %>
+										<% if admin? %>
+											<li>
+												<%= link_to admin_path do %>
+													<i class="icon-briefcase"></i> Admin Panel
+												<% end %>
+											</li>
+										<% end %>
 										<li>
 											<%= link_to profile_path do %>
 												<i class="icon-home"></i> Profile

@@ -69,7 +69,11 @@ EGov::Application.routes.draw do
 				get 'delete'
 			end
 		end
-		resources :comments
+		resources :comments do
+			member do
+				get 'delete'
+			end
+		end
 	end
 	
 end
