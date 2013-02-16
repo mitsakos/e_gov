@@ -64,6 +64,11 @@ EGov::Application.routes.draw do
 	end
 	namespace :admin do
 		get '', to: 'dashboard#index', as: '/'
+		resources :users do
+			member do
+				get 'delete'
+			end
+		end
 		resources :posts do
 			member do
 				get 'delete'

@@ -14,32 +14,27 @@
 
 
     <div class = "dashboard_content">
-        <h2 class = "dashboard_header">Edit  Comment #<%= @comment.id %></h2>
+        <h2 class = "dashboard_header">New User</h2>
         <ul class = "breadcrumb well">
             <li><%= link_to "Dashboard", admin_path %> <span class="divider">/</span></li>
-            <li><%= link_to "Comments", admin_comments_path %> <span class="divider">/</span></li>
-            <li class = "active"><%= link_to "Edit Comment", edit_admin_comment_path(@comment) %></li>
+            <li><%= link_to "Users", admin_users_path %> <span class="divider">/</span></li>
+            <li class = "active"><%= link_to "New User", new_admin_user_path %></li>
         </ul>
         <ul class="nav nav-tabs">
             <li>
-            	<%= link_to admin_comment_path(@comment) do %>
-            		<i class = "icon-info-sign"></i> Show
+            	<%= link_to admin_users_path do %>
+            		<i class = "icon-list"></i> List
             	<% end %>
             </li>
             <li class="active">
-            	<%= link_to edit_admin_comment_path(@comment) do %>
-            		<i class = "icon-pencil"></i> Edit Comment</a>
+            	<%= link_to new_admin_user_path do %>
+            		<i class = "icon-plus"></i> Add New</a>
             	<% end%>
-            </li>
-            <li>
-                <%= link_to delete_admin_comment_path(@comment) do %>
-                    <i class = "icon-remove"></i> Delete Comment</a>
-                <% end%>
             </li>
         </ul>
 
         <div class="tab-content clear">
-            <div class="tab-pane active" id="admin_edit_comment">
+            <div class="tab-pane active" id="admin_new_user">
             	<%= render 'form' %>
             </div><br />
         </div>

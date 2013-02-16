@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
 	has_many :topics
 	has_many :replies
 	# Limiting mass assignment for security
-	attr_accessible :username, :email, :password, :password_confirmation, :avatar
+	attr_accessible :username, :email, :password, :password_confirmation, :avatar, :administrator
 	# Making needed attributes available
 	attr_accessor :password
 
