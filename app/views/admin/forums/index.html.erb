@@ -14,19 +14,19 @@
 
 
     <div class = "dashboard_content">
-        <h2 class = "dashboard_header">Posts List</h2>
+        <h2 class = "dashboard_header">Forums List</h2>
         <ul class = "breadcrumb well">
             <li><%= link_to "Dashboard", admin_path %> <span class="divider">/</span></li>
-            <li class = "active"><%= link_to "Posts", admin_posts_path %></li>
+            <li class = "active"><%= link_to "Forums", admin_forums_path %></li>
         </ul>
         <ul class="nav nav-tabs">
             <li class="active">
-            	<%= link_to admin_posts_path do %>
+            	<%= link_to admin_forums_path do %>
             		<i class = "icon-list"></i> List
             	<% end %>
             </li>
             <li>
-            	<%= link_to new_admin_post_path do %>
+            	<%= link_to new_admin_forum_path do %>
             		<i class = "icon-plus"></i> Add New</a>
             	<% end%>
             </li>
@@ -43,18 +43,18 @@
 						</tr>
 					</thead>
 					<tbody>
-		            	<% @posts.reverse.each do |post| %>
+		            	<% @forums.reverse.each do |forum| %>
 		            		<tr>
-		            			<td><%= post.title %></td>
-		            			<td><%= post.created_at %></td>
+		            			<td><%= forum.title %></td>
+		            			<td><%= forum.created_at %></td>
 		            			<td>
-		            				<%= link_to admin_post_path(post) do %>
+		            				<%= link_to admin_forum_path(forum) do %>
 										<i class="icon-info-sign"></i>
 									<% end %>
-									<%= link_to edit_admin_post_path(post) do %>
+									<%= link_to edit_admin_forum_path(forum) do %>
 										<i class="icon-pencil"></i>
 									<% end %>
-									<%= link_to(admin_post_path(post), :method => :delete) do %>
+									<%= link_to(admin_forum_path(forum), :method => :delete) do %>
 										<i class="icon-remove"></i>
 									<% end %>
 								</td>	

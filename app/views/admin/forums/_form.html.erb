@@ -1,0 +1,22 @@
+<% message = pluralize(@forum.errors.count, "error") + " prohibited this forum from being saved: <br />" %>
+<% @forum.errors.full_messages.each do |msg| %>
+	<% message = "#{message}#{msg}"+"<br />" %>
+<% end %>
+
+<%= form_for([:admin,@forum], :html => {:id => "admin_forum_form"}) do |f| %>
+	<% if @forum.errors.any? %>
+		<% flash.now[:error] =  message.html_safe %>
+	<% end %>
+	<p>
+		<%= f.label :title %><br />
+		<%= f.text_field :title %>
+	</p>
+	<p>
+		<%= f.label :description %><br />
+		<%= f.text_area :description %>
+	</p>
+	<p>
+		<%= f.submit "Done", :class => "btn" %>
+	</p>
+
+<% end %>

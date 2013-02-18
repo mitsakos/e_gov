@@ -14,36 +14,39 @@
 
 
     <div class = "dashboard_content">
-        <h2 class = "dashboard_header">Delete User <%= @user.username %></h2>
+        <h2 class = "dashboard_header">Delete Forum <%= @forum.title %></h2>
         <ul class = "breadcrumb well">
             <li><%= link_to "Dashboard", admin_path %> <span class="divider">/</span></li>
-            <li><%= link_to "Users", admin_users_path %> <span class="divider">/</span></li>
-            <li class = "active"><%= link_to "Delete User", delete_admin_user_path(@user) %></li>
+            <li><%= link_to "Posts", admin_forums_path %> <span class="divider">/</span></li>
+            <li class = "active"><%= link_to "Delete Forum", delete_admin_forum_path(@forum) %></li>
         </ul>
         <ul class="nav nav-tabs">
             <li>
-            	<%= link_to admin_user_path(@user) do %>
+            	<%= link_to admin_forum_path(@forum) do %>
             		<i class = "icon-info-sign"></i> Show
             	<% end %>
             </li>
             <li>
-            	<%= link_to edit_admin_user_path(@user) do %>
-            		<i class = "icon-pencil"></i> Edit User</a>
+            	<%= link_to edit_admin_forum_path(@forum) do %>
+            		<i class = "icon-pencil"></i> Edit Forum</a>
             	<% end%>
             </li>
             <li class="active">
-                <%= link_to delete_admin_user_path(@user) do %>
-                    <i class = "icon-remove"></i> Delete User</a>
+                <%= link_to delete_admin_forum_path(@forum) do %>
+                    <i class = "icon-remove"></i> Delete Forum</a>
                 <% end%>
             </li>
         </ul>
 
         <div class="tab-content clear">
-            <div class="tab-pane active" id="admin_delete_user">
-            	<h5>Are you sure you want to delete User "<%= @user.username %>"?</h5>
+            <div class="tab-pane active" id="admin_delete_forum">
+            	<h5>Are you sure you want to delete Forum "<%= @forum.title %>"? The following topics will be deleted too:</h5>
+                <% @rel_topics.each do |rel_topic| %>
+                    <span class = "label">Topic </span>&nbsp;<%= rel_topic.title %><br />
+                <% end %><br />
                 <div>
-                    <%= button_to 'Yes, delete user', admin_user_path(@user), :class => "btn btn-danger pull-left", :id => "confirm_delete", :method => :delete %>
-                    <%= button_to 'Cancel', admin_user_path(@user), :class => "btn", :method => :get %>
+                    <%= button_to 'Yes, delete it', admin_forum_path(@forum), :class => "btn btn-danger pull-left", :id => "confirm_delete", :method => :delete %>
+                    <%= button_to 'Cancel', admin_forum_path(@forum), :class => "btn", :method => :get %>
                 </div>
             </div><br />
         </div>

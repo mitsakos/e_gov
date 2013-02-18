@@ -14,32 +14,27 @@
 
 
     <div class = "dashboard_content">
-        <h2 class = "dashboard_header">Edit User <%= @user.username %></h2>
+        <h2 class = "dashboard_header">New Forum</h2>
         <ul class = "breadcrumb well">
             <li><%= link_to "Dashboard", admin_path %> <span class="divider">/</span></li>
-            <li><%= link_to "Users", admin_users_path %> <span class="divider">/</span></li>
-            <li class = "active"><%= link_to "Edit User", edit_admin_user_path(@user) %></li>
+            <li><%= link_to "Forums", admin_forums_path %> <span class="divider">/</span></li>
+            <li class = "active"><%= link_to "New Forum", new_admin_forum_path %></li>
         </ul>
         <ul class="nav nav-tabs">
             <li>
-            	<%= link_to admin_user_path(@user) do %>
-            		<i class = "icon-info-sign"></i> Show
+            	<%= link_to admin_forums_path do %>
+            		<i class = "icon-list"></i> List
             	<% end %>
             </li>
             <li class="active">
-            	<%= link_to edit_admin_user_path(@user) do %>
-            		<i class = "icon-pencil"></i> Edit User</a>
+            	<%= link_to new_admin_forum_path do %>
+            		<i class = "icon-plus"></i> Add New</a>
             	<% end%>
-            </li>
-            <li>
-                <%= link_to delete_admin_user_path(@user) do %>
-                    <i class = "icon-remove"></i> Delete User</a>
-                <% end%>
             </li>
         </ul>
 
         <div class="tab-content clear">
-            <div class="tab-pane active" id="admin_edit_user">
+            <div class="tab-pane active" id="admin_new_forum">
             	<%= render 'form' %>
             </div><br />
         </div>
