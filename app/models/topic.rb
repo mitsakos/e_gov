@@ -5,7 +5,7 @@ class Topic < ActiveRecord::Base
 	belongs_to :user
 	has_many :replies, :dependent => :destroy
 	# Limiting mass assignment for security
-	attr_accessible :title
+	attr_accessible :title, :forum_id
 
 	# Form input validations
 	validates :title, :presence => true, :length => { :minimum => 5 }

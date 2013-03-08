@@ -14,33 +14,40 @@
 
 
     <div class = "dashboard_content">
-        <h2 class = "dashboard_header">Edit  Post <%= @post.title %></h2>
+        <h2 class = "dashboard_header">Delete Topic <%= @topic.title %></h2>
         <ul class = "breadcrumb well">
             <li><%= link_to "Dashboard", admin_path %> <span class="divider">/</span></li>
-            <li><%= link_to "Posts", admin_posts_path %> <span class="divider">/</span></li>
-            <li class = "active"><%= link_to "Edit Post", edit_admin_post_path(@post) %></li>
+            <li><%= link_to "Topics", admin_topics_path %> <span class="divider">/</span></li>
+            <li class = "active"><%= link_to "Delete Topic", delete_admin_topic_path(@topic) %></li>
         </ul>
         <ul class="nav nav-tabs">
             <li>
-            	<%= link_to admin_post_path(@post) do %>
+            	<%= link_to admin_topic_path(@topic) do %>
             		<i class = "icon-info-sign"></i> Show
             	<% end %>
             </li>
-            <li class="active">
-            	<%= link_to edit_admin_post_path(@post) do %>
+            <li>
+            	<%= link_to edit_admin_topic_path(@topic) do %>
             		<i class = "icon-pencil"></i> Edit Post</a>
             	<% end%>
             </li>
-            <li>
-                <%= link_to delete_admin_post_path(@post) do %>
+            <li class="active">
+                <%= link_to delete_admin_topic_path(@topic) do %>
                     <i class = "icon-remove"></i> Delete Post</a>
                 <% end%>
             </li>
         </ul>
 
         <div class="tab-content clear">
-            <div class="tab-pane active" id="admin_edit_post">
-            	<%= render 'form' %>
+            <div class="tab-pane active" id="admin_delete_topic">
+            	<h5>Are you sure you want to delete Topic "<%= @topic.title %>"? The following topic posts will be deleted too:</h5>
+                <% @rel_replies.each do |rel_reply| %>
+                    <span class = "label">Topic Post </span>&nbsp;<%= rel_reply.body %><br />
+                <% end %><br />
+                <div>
+                    <%= button_to 'Yes, delete it', admin_topic_path(@topic), :class => "btn btn-danger pull-left", :id => "confirm_delete", :method => :delete %>
+                    <%= button_to 'Cancel', admin_topic_path(@topic), :class => "btn", :method => :get %>
+                </div>
             </div><br />
         </div>
     </div>

@@ -5,7 +5,7 @@
             <li><%= link_to 'Manage Posts', admin_posts_path %></li>
             <li><%= link_to 'Manage Comments', admin_comments_path %></li>
             <li><%= link_to 'Manage Forums', admin_forums_path %></li>
-            <li><%= link_to 'Manage Topics' %></li>
+            <li><%= link_to 'Manage Topics', admin_topics_path %></li>
             <li><%= link_to 'Manage Forum Posts' %></li>
             <li><%= link_to 'Manage Events' %></li>
             <li><%= link_to 'Manage Polls' %></li>
@@ -17,7 +17,7 @@
         <h2 class = "dashboard_header">Delete Forum <%= @forum.title %></h2>
         <ul class = "breadcrumb well">
             <li><%= link_to "Dashboard", admin_path %> <span class="divider">/</span></li>
-            <li><%= link_to "Posts", admin_forums_path %> <span class="divider">/</span></li>
+            <li><%= link_to "Forums", admin_forums_path %> <span class="divider">/</span></li>
             <li class = "active"><%= link_to "Delete Forum", delete_admin_forum_path(@forum) %></li>
         </ul>
         <ul class="nav nav-tabs">

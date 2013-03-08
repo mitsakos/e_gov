@@ -1,0 +1,29 @@
+<% message = pluralize(@topic.errors.count, "error") + " prohibited this topic from being saved: <br />" %>
+<% @topic.errors.full_messages.each do |msg| %>
+	<% message = "#{message}#{msg}"+"<br />" %>
+<% end %>
+
+<%= form_for([:admin, @topic], :html => {:id => "admin_new_topic"}) do |f| %>
+	<% if @topic.errors.any? %>
+		<% flash.now[:error] =  message.html_safe %>
+	<% end %>
+	<p>
+		<%= f.collection_select(:forum_id, Forum.all, :id, :title, {}, {:class => "dropdown"}) %>
+	</p>
+	<p>
+		<%= f.label :title %><br />
+		<%= f.text_field :title %>
+	</p>
+  
+	<%= fields_for(@reply) do |cf|%>
+		<p>
+			<%= cf.label :body %><br />
+			<%= cf.text_area(:body, :size => "60x10")%>
+		</p>
+	<% end %>
+
+	<p>
+		<%= f.submit "Done", :class => "btn" %>
+	</p>
+
+<% end %>
