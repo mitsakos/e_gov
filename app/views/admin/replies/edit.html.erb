@@ -14,32 +14,32 @@
 
 
     <div class = "dashboard_content">
-        <h2 class = "dashboard_header">Edit Forum <%= @forum.title %></h2>
+        <h2 class = "dashboard_header">Edit Forum Post <%= @reply.id %></h2>
         <ul class = "breadcrumb well">
             <li><%= link_to "Dashboard", admin_path %> <span class="divider">/</span></li>
-            <li><%= link_to "Forums", admin_forums_path %> <span class="divider">/</span></li>
-            <li class = "active"><%= link_to "Edit Forum", edit_admin_forum_path(@forum) %></li>
+            <li><%= link_to "Forum Posts", admin_replies_path %> <span class="divider">/</span></li>
+            <li class = "active"><%= link_to "Edit Forum Post", edit_admin_reply_path(@reply) %></li>
         </ul>
         <ul class="nav nav-tabs">
             <li>
-            	<%= link_to admin_forum_path(@forum) do %>
+            	<%= link_to admin_reply_path(@reply) do %>
             		<i class = "icon-info-sign"></i> Show
             	<% end %>
             </li>
             <li class="active">
-            	<%= link_to edit_admin_forum_path(@forum) do %>
-            		<i class = "icon-pencil"></i> Edit Forum</a>
+            	<%= link_to edit_admin_reply_path(@reply) do %>
+            		<i class = "icon-pencil"></i> Edit Forum Post</a>
             	<% end%>
             </li>
             <li>
-                <%= link_to delete_admin_forum_path(@forum) do %>
-                    <i class = "icon-remove"></i> Delete Forum</a>
+                <%= link_to delete_admin_reply_path(@reply) do %>
+                    <i class = "icon-remove"></i> Delete Forum Post</a>
                 <% end%>
             </li>
         </ul>
 
         <div class="tab-content clear">
-            <div class="tab-pane active" id="admin_edit_forum">
+            <div class="tab-pane active" id="admin_edit_reply">
             	<%= render 'form' %>
             </div><br />
         </div>

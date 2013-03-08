@@ -6,7 +6,7 @@
             <li><%= link_to 'Manage Comments', admin_comments_path %></li>
             <li><%= link_to 'Manage Forums', admin_forums_path %></li>
             <li><%= link_to 'Manage Topics', admin_topics_path %></li>
-            <li><%= link_to 'Manage Forum Posts' %></li>
+            <li><%= link_to 'Manage Forum Posts', admin_replies_path %></li>
             <li><%= link_to 'Manage Events' %></li>
             <li><%= link_to 'Manage Polls' %></li>
         </ul>
@@ -39,7 +39,7 @@
         </ul>
 
         <div class="tab-content clear">
-            <div class="tab-pane active" id="post_list">
+            <div class="tab-pane active" id="comment_list">
             	<span class = "label">Comment #<%= @comment.id %></span><h5><%= @comment.body %></h5>
             </div><br />
         </div>

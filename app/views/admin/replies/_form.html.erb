@@ -1,0 +1,20 @@
+<% message = pluralize(@reply.errors.count, "error") + " prohibited this reply from being saved: <br />" %>
+<% @reply.errors.full_messages.each do |msg| %>
+	<% message = "#{message}#{msg}"+"<br />" %>
+<% end %>
+
+<%= form_for([:admin, @reply],  :html => { :id => 'admin_reply_form' })  do |f| %>
+	<% if @reply.errors.any? %>
+		<% flash.now[:error] =  message.html_safe %>
+	<% end %>
+	<p>
+		<%= f.collection_select(:topic_id, Topic.all, :id, :title, {}, {:class => "dropdown"}) %>
+	</p>
+	<p>
+		<%= f.text_area :body %>
+	</p>
+	<p>
+		<%= f.submit "Done", :class => "btn" %>
+	</p>
+
+<% end %>

@@ -89,6 +89,11 @@ EGov::Application.routes.draw do
 				get 'delete'
 			end
 		end
+		resources :replies do
+			member do
+				get 'delete'
+			end
+		end
 	end
 	
 end
