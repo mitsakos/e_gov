@@ -14,47 +14,37 @@
 
 
     <div class = "dashboard_content">
-        <h2 class = "dashboard_header">Forum <%= @forum.title %></h2>
+        <h2 class = "dashboard_header">Delete Event <%= @event.name %></h2>
         <ul class = "breadcrumb well">
             <li><%= link_to "Dashboard", admin_path %> <span class="divider">/</span></li>
-            <li><%= link_to "Forums", admin_forums_path %> <span class="divider">/</span></li>
-            <li><%= @forum.title %>
+            <li><%= link_to "Events", admin_events_path %> <span class="divider">/</span></li>
+            <li class = "active"><%= link_to "Delete Event", delete_admin_event_path(@event) %></li>
         </ul>
         <ul class="nav nav-tabs">
-            <li class="active">
-            	<%= link_to admin_forum_path(@forum) do %>
+            <li>
+            	<%= link_to admin_event_path(@event) do %>
             		<i class = "icon-info-sign"></i> Show
             	<% end %>
             </li>
             <li>
-            	<%= link_to edit_admin_forum_path(@forum) do %>
-            		<i class = "icon-pencil"></i> Edit Forum</a>
+            	<%= link_to edit_admin_event_path(@event) do %>
+            		<i class = "icon-pencil"></i> Edit Event</a>
             	<% end%>
             </li>
-            <li>
-                <%= link_to delete_admin_forum_path(@forum) do %>
-                    <i class = "icon-remove"></i> Delete Forum</a>
+            <li class="active">
+                <%= link_to delete_admin_event_path(@event) do %>
+                    <i class = "icon-remove"></i> Delete Event</a>
                 <% end%>
             </li>
         </ul>
 
         <div class="tab-content clear">
-            <div class="tab-pane active" id="forum_list">
-            	<div id = "forum_show">
-					<h3><%= @forum.title %></h3>
-					<b>Description: </b><%= @forum.description %><br />
-					<b>Created: </b><%= time_ago_in_words(@forum.created_at) %> ago<br />
-					<h5>Topics: </h5>
-					<table class = "table table-striped table-condensed">
-					<tbody>
-		            	<% @topics.each do |topic| %>
-		            		<tr>
-		            			<td><%= topic.title %></td>
-		            		</tr>
-		            	<% end %>
-		            </tbody>
-		        </table>
-				</div><!-- end forum_show -->
+            <div class="tab-pane active" id="admin_delete_event">
+            	<h5>Are you sure you want to delete Event "<%= @event.name %>"?<br />
+                <div>
+                    <%= button_to 'Yes, delete it', admin_event_path(@event), :class => "btn btn-danger pull-left", :id => "confirm_delete", :method => :delete %>
+                    <%= button_to 'Cancel', admin_event_path(@event), :class => "btn", :method => :get %>
+                </div>
             </div><br />
         </div>
     </div>

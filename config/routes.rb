@@ -94,6 +94,11 @@ EGov::Application.routes.draw do
 				get 'delete'
 			end
 		end
+		resources :events do
+			member do
+				get 'delete'
+			end
+		end
 	end
 	
 end

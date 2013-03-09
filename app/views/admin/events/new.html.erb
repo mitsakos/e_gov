@@ -14,54 +14,28 @@
 
 
     <div class = "dashboard_content">
-        <h2 class = "dashboard_header">Posts List</h2>
+        <h2 class = "dashboard_header">New Event</h2>
         <ul class = "breadcrumb well">
             <li><%= link_to "Dashboard", admin_path %> <span class="divider">/</span></li>
-            <li class = "active"><%= link_to "Posts", admin_posts_path %></li>
+            <li><%= link_to "Events", admin_events_path %> <span class="divider">/</span></li>
+            <li class = "active"><%= link_to "New Event", new_admin_event_path %></li>
         </ul>
         <ul class="nav nav-tabs">
-            <li class="active">
-            	<%= link_to admin_posts_path do %>
+            <li>
+            	<%= link_to admin_events_path do %>
             		<i class = "icon-list"></i> List
             	<% end %>
             </li>
-            <li>
-            	<%= link_to new_admin_post_path do %>
+            <li class="active">
+            	<%= link_to new_admin_event_path do %>
             		<i class = "icon-plus"></i> Add New</a>
             	<% end%>
             </li>
         </ul>
 
         <div class="tab-content clear">
-            <div class="tab-pane active" id="post_list">
-            	<table class = "table table-striped table-condensed">
-            		<thead>
-						<tr>  
-							<th>Title</th>  
-							<th>Created at</th>  
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-		            	<% @posts.reverse.each do |post| %>
-		            		<tr>
-		            			<td><%= post.title %></td>
-		            			<td><%= post.created_at %></td>
-		            			<td>
-		            				<%= link_to admin_post_path(post) do %>
-										<i class="icon-info-sign"></i>
-									<% end %>
-									<%= link_to edit_admin_post_path(post) do %>
-										<i class="icon-pencil"></i>
-									<% end %>
-									<%= link_to(admin_post_path(post), :method => :delete) do %>
-										<i class="icon-remove"></i>
-									<% end %>
-								</td>	
-		            		</tr>
-		            	<% end %>
-		            </tbody>
-		        </table>
+            <div class="tab-pane active" id="admin_new_event">
+            	<%= render 'form' %>
             </div><br />
         </div>
     </div>

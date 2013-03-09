@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
 	attr_accessible :content, :ev_date, :name, :photo
 
 	# Papaerclip addition
-	has_attached_file :photo, :styles => { :large => "300x300>" }
+	has_attached_file :photo, :styles => { :small => "150x150>", :large => "300x300>" }
 
 	# Paperclip validations
 	validates_attachment_presence :photo
