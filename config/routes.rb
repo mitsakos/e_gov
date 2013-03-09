@@ -99,6 +99,12 @@ EGov::Application.routes.draw do
 				get 'delete'
 			end
 		end
+		resources :polls do
+			member do
+				get 'delete'
+				put 'vote'
+			end
+		end
 	end
 	
 end

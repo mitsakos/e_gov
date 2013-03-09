@@ -14,32 +14,32 @@
 
 
     <div class = "dashboard_content">
-        <h2 class = "dashboard_header">Edit  Post <%= @post.title %></h2>
+        <h2 class = "dashboard_header">Edit Poll <%= @poll.id %></h2>
         <ul class = "breadcrumb well">
             <li><%= link_to "Dashboard", admin_path %> <span class="divider">/</span></li>
-            <li><%= link_to "Posts", admin_posts_path %> <span class="divider">/</span></li>
-            <li class = "active"><%= link_to "Edit Post", edit_admin_post_path(@post) %></li>
+            <li><%= link_to "Polls", admin_polls_path %> <span class="divider">/</span></li>
+            <li class = "active"><%= link_to "Edit Poll", edit_admin_poll_path(@poll) %></li>
         </ul>
         <ul class="nav nav-tabs">
             <li>
-            	<%= link_to admin_post_path(@post) do %>
+            	<%= link_to admin_poll_path(@poll) do %>
             		<i class = "icon-info-sign"></i> Show
             	<% end %>
             </li>
             <li class="active">
-            	<%= link_to edit_admin_post_path(@post) do %>
-            		<i class = "icon-pencil"></i> Edit Post</a>
+            	<%= link_to edit_admin_poll_path(@poll) do %>
+            		<i class = "icon-pencil"></i> Edit Poll</a>
             	<% end%>
             </li>
             <li>
-                <%= link_to delete_admin_post_path(@post) do %>
-                    <i class = "icon-remove"></i> Delete Post</a>
+                <%= link_to delete_admin_poll_path(@poll) do %>
+                    <i class = "icon-remove"></i> Delete Poll</a>
                 <% end%>
             </li>
         </ul>
 
         <div class="tab-content clear">
-            <div class="tab-pane active" id="admin_edit_post">
+            <div class="tab-pane active" id="admin_edit_poll">
             	<%= render 'form' %>
             </div><br />
         </div>

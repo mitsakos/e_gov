@@ -14,47 +14,47 @@
 
 
     <div class = "dashboard_content">
-        <h2 class = "dashboard_header">Posts List</h2>
+        <h2 class = "dashboard_header">Polls List</h2>
         <ul class = "breadcrumb well">
             <li><%= link_to "Dashboard", admin_path %> <span class="divider">/</span></li>
-            <li class = "active"><%= link_to "Posts", admin_posts_path %></li>
+            <li class = "active"><%= link_to "Polls", admin_polls_path %></li>
         </ul>
         <ul class="nav nav-tabs">
             <li class="active">
-            	<%= link_to admin_posts_path do %>
+            	<%= link_to admin_polls_path do %>
             		<i class = "icon-list"></i> List
             	<% end %>
             </li>
             <li>
-            	<%= link_to new_admin_post_path do %>
+            	<%= link_to new_admin_poll_path do %>
             		<i class = "icon-plus"></i> Add New</a>
             	<% end%>
             </li>
         </ul>
 
         <div class="tab-content clear">
-            <div class="tab-pane active" id="post_list">
+            <div class="tab-pane active" id="poll_list">
             	<table class = "table table-striped table-condensed">
             		<thead>
 						<tr>  
-							<th>Title</th>  
-							<th>Created at</th>  
+							<th>Question</th>  
+							<th>Votes Count</th>  
 							<th></th>
 						</tr>
 					</thead>
 					<tbody>
-		            	<% @posts.reverse.each do |post| %>
+		            	<% @polls.reverse.each do |poll| %>
 		            		<tr>
-		            			<td><%= post.title %></td>
-		            			<td><%= post.created_at %></td>
+		            			<td class = "span8"><%= poll.question %></td>
+		            			<td><%= poll.votes_count %></td>
 		            			<td>
-		            				<%= link_to admin_post_path(post) do %>
+		            				<%= link_to admin_poll_path(poll) do %>
 										<i class="icon-info-sign"></i>
 									<% end %>
-									<%= link_to edit_admin_post_path(post) do %>
+									<%= link_to edit_admin_poll_path(poll) do %>
 										<i class="icon-pencil"></i>
 									<% end %>
-									<%= link_to(admin_post_path(post), :method => :delete) do %>
+									<%= link_to(admin_poll_path(poll), :method => :delete) do %>
 										<i class="icon-remove"></i>
 									<% end %>
 								</td>	
