@@ -89,7 +89,7 @@ class PollsController < ApplicationController
 
 	def vote
 		@poll = Poll.find(params[:id])
-		if  params[:poll_option] and params[:poll_option][:id]
+		if  current_user && params[:poll_option] && params[:poll_option][:id] && !(PollResponse.find_by_poll_id_and_user_id(@poll.id, current_user.id))
 			@poll_option = @poll.poll_options.find_by_id(params[:poll_option][:id])
 			@poll.votes_count += 1
 			@poll_option.poll_responses_count += 1
@@ -99,7 +99,7 @@ class PollsController < ApplicationController
 			@poll_response.poll_option_id = @poll_option.id
 			respond_to do |format|
 				if @poll.update_attributes(params[:poll]) && @poll_option.update_attributes(params[:poll_option]) && @poll_response.update_attributes(params[:poll_response])
-					format.html { redirect_to @poll }
+					format.html { redirect_to @poll, notice: 'Thank you for voting' }
 					format.json { head :no_content }
 				else
 					format.html { render action: "show" }

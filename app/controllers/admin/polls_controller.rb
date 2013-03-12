@@ -99,7 +99,7 @@ class Admin::PollsController < ApplicationController
 			@poll_response.poll_option_id = @poll_option.id
 			respond_to do |format|
 				if @poll.update_attributes(params[:poll]) && @poll_option.update_attributes(params[:poll_option]) && @poll_response.update_attributes(params[:poll_response])
-					format.html { redirect_to admin_poll_path(@poll) }
+					format.html { redirect_to admin_poll_path(@poll), notice: 'Thank you for voting' }
 					format.json { head :no_content }
 				else
 					format.html { render action: "show" }
