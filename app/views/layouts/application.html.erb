@@ -23,6 +23,7 @@
 	  						<li class="<%= 'active' if params[:controller] == "polls" %>"><%= link_to "Polls", polls_url %></li>
 	  						<li class="<%= 'active' if params[:controller] == "static" && params[:action] == "links" %>"><%= link_to "Useful Links", links_url %></li>
 	  						<li class="<%= 'active' if params[:controller] == "static" && params[:action] == "contact" %>"><%= link_to "Contact", contacts_url %></li>
+	  						<li><%= link_to "RSS Feed", posts_url(:rss) %></li>
 	  					</ul>
 	  					<ul class = "nav pull-right">
 							<li class = "dropdown">
