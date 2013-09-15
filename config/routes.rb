@@ -39,7 +39,7 @@ EGov::Application.routes.draw do
 	resources :users
 	resources :sessions
 	resources :password_resets
-	resources :events
+	resources :events, :only => :show
 	# Producing Kaminari friendly URLs
 	resources :posts do
 		get 'page/:page', :action => :index, :on => :collection
@@ -51,7 +51,7 @@ EGov::Application.routes.draw do
 		end
 	end
 
-	resources :posts do
+	resources :posts, :only => [:index, :show] do
 		resources :comments
 	end
 	resources :forums do
@@ -59,7 +59,7 @@ EGov::Application.routes.draw do
 			resources :replies, :except => [:index, :show, :new] 
 		end
 	end
-	resources :polls do
+	resources :polls, :only => [:index, :show] do
 		put 'vote', :on => :member
 	end
 	namespace :admin do

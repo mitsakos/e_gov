@@ -12,10 +12,6 @@
 	<div class="row">
 		<div class="widget span4">
 			<%= render_cell :events, :index %>
-			<% if admin? %>
-				<%= button_to 'Show All', events_path, :method => :get, :class => "btn pull-right" %>
-			<% end %>
-			<br />
 		</div><!-- end widget -->
 	</div><!-- end widget row -->
 </aside><!-- end sidebar -->

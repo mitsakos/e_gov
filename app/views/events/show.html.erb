@@ -4,9 +4,6 @@
 			<div id = "image_large"> 
 				<%= image_tag @event.photo.url(:large), :class => "img-polaroid" %>
 				<div id = "control_buttons">
-					<% if admin? %>
-						<%= button_to 'Edit', edit_event_path(@event), :class => "btn btn-info pull-left", :method => :get%>
-					<% end %>
 					<%= button_to 'Back', root_path, :class => "btn pull-left", :method => :get%>
 				</div><!-- end control buttons div -->
 			</div>

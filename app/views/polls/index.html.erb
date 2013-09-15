@@ -12,12 +12,6 @@
 					<tr>
 						<td>
 							<h4><%= link_to poll.question, poll %></h4>
-							<% if admin? %>
-							<div>
-								<%= link_to 'Edit', edit_poll_path(poll), :class => "btn btn-info", :method => :get %>
-								<%= link_to 'Destroy', poll, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
-							</div>
-							<% end %>
 						</td>
 						<td>
 							<%= poll.votes_count %>
@@ -26,10 +20,6 @@
 				</tbody>
 			<% end %>
 		</table>
-		<% if admin? %>
-			<br />
-			<%= button_to 'New Poll', new_poll_path, :class => "btn", :method => :get %>
-		<% end %>
 	</div>
 	<%= render 'layouts/aside' %>
 </div>

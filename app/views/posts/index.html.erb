@@ -36,16 +36,11 @@
                         <%= image_tag post.photo.url(:small), :class => "img-rounded" %>
                     </div>
                     <div class="details span6">
-                        <h3><%= post.title %></h3>
+                        <h3><%= link_to post.title, post %></h3>
                         <p>
                             <%= truncate(post.content, :length => 500, :separator => '.') %>
                         </p>
                     </div>
-                    <%= button_to 'Show', post, :class => "btn pull-right btn-primary", :method => :get %>
-                    <% if admin? %>
-                        <%= button_to 'Edit', edit_post_path(post), :class => "btn pull-right btn-info", :method => :get %>
-                        <%= button_to 'Destroy', post, :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn pull-right btn-danger" %>
-                    <% end %>
                 </div><!-- end post row -->
             </div><!-- end post -->
         <% end %>
@@ -56,7 +51,3 @@
 
 
 <br />
-<% if admin? %>
-    <%= button_to 'New Post', new_post_path, :class => "btn", :method => :get%>
-<% end %>
-

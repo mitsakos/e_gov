@@ -28,9 +28,6 @@
 		</div><!-- end comment form row -->
 		<br />
 		<div id = "control_buttons">
-			<% if admin? %>
-				<%= button_to 'Edit', edit_post_path(@post), :class => "btn btn-info pull-left", :method => :get%>
-			<% end %>
 			<%= button_to 'Back', posts_path, :class => "btn pull-left", :method => :get%>
 		</div><!-- end control buttons div -->
 	</div><!-- end main area -->
