@@ -2,17 +2,17 @@
 	<div class="span8">
 
 		<%= image_tag @user.avatar.url(:large), :class => "img-polaroid pull-left", :id => "avatar" %>
-		<h2 id = "username"><%= @user.username %></h2>[<%= link_to "edit profile", edit_user_path(@user) %>]<br />
-		<h4 id = "info">Info:</h4> <br />
+		<h2 id = "username"><%= @user.username %></h2>[<%= link_to "Αλλαγή προφίλ", edit_user_path(@user) %>]<br />
+		<h4 id = "info">Πληροφορίες:</h4> <br />
 		E-mail: <%= @user.email %><br />
-		Account Creation: <%= @user.created_at %>
+		Δημιουργία λογαριασμού: <%= I18n.l(@user.created_at) %>
 		<div id = "user_wrapper">
 			<div class="accordion" id="user_accordion">
-				<h4>Statistics:</h4>
+				<h4>Στατιστικά:</h4>
 				<div class="accordion-group">
 					<div class="accordion-heading">
 						<a class="accordion-toggle" data-toggle="collapse" data-parent="#user_accordion" href="#comments_collapse">
-							Comments (<%= @user.comments.count %>)
+							Σχόλια (<%= @user.comments.count %>)
 						</a>
 					</div>
 					<div id="comments_collapse" class="accordion-body collapse">
@@ -34,7 +34,7 @@
 	  			<div class="accordion-group">
 					<div class="accordion-heading">
 						<a class="accordion-toggle" data-toggle="collapse" data-parent="#user_accordion" href="#topics_collapse">
-							Topics (<%= @user.topics.count %>)
+							Θέματα (<%= @user.topics.count %>)
 						</a>
 					</div>
 					<div id="topics_collapse" class="accordion-body collapse">
@@ -56,7 +56,7 @@
 	  			<div class="accordion-group">
 					<div class="accordion-heading">
 						<a class="accordion-toggle" data-toggle="collapse" data-parent="#user_accordion" href="#replies_collapse">
-							Topic Posts (<%= @user.replies.count %>)
+							Απαντήσεις (<%= @user.replies.count %>)
 						</a>
 					</div>
 					<div id="replies_collapse" class="accordion-body collapse">
@@ -78,7 +78,7 @@
 	  			<div class="accordion-group">
 					<div class="accordion-heading">
 						<a class="accordion-toggle" data-toggle="collapse" data-parent="#user_accordion" href="#polls_collapse">
-							Votes (<%= @user.poll_responses.count %>)
+							Ψήφοι (<%= @user.poll_responses.count %>)
 						</a>
 					</div>
 					<div id="polls_collapse" class="accordion-body collapse">

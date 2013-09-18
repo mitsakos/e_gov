@@ -1,39 +1,39 @@
 <div class = "dashboard_container">
     <div class = "well dashboard_navigation">
         <ul id = "admin_nav_list">
-            <li><%= link_to 'Manage Users', admin_users_path %></li>
-            <li><%= link_to 'Manage Posts', admin_posts_path %></li>
-            <li><%= link_to 'Manage Comments', admin_comments_path %></li>
-            <li><%= link_to 'Manage Forums', admin_forums_path %></li>
-            <li><%= link_to 'Manage Topics', admin_topics_path %></li>
-            <li><%= link_to 'Manage Forum Posts', admin_replies_path %></li>
-            <li><%= link_to 'Manage Events', admin_events_path %></li>
-            <li><%= link_to 'Manage Polls', admin_polls_path %></li>
+            <li><%= link_to 'Διαχείρηση χρηστών', admin_users_path %></li>
+            <li><%= link_to 'Διαχείρηση αναρτήσεων', admin_posts_path %></li>
+            <li><%= link_to 'Διαχείρηση σχολίων', admin_comments_path %></li>
+            <li><%= link_to 'Διαχείρηση forum', admin_forums_path %></li>
+            <li><%= link_to 'Διαχείρηση θεμάτων', admin_topics_path %></li>
+            <li><%= link_to 'Διαχείρηση απαντήσεων', admin_replies_path %></li>
+            <li><%= link_to 'Διαχείρηση συμβάντων', admin_events_path %></li>
+            <li><%= link_to 'Διαχείρηση ψηφοφοριών', admin_polls_path %></li>
         </ul>
     </div>
 
 
     <div class = "dashboard_content">
-        <h2 class = "dashboard_header">User <%= @user.username %></h2>
+        <h2 class = "dashboard_header">Χρήστης <%= @user.username %></h2>
         <ul class = "breadcrumb well">
-            <li><%= link_to "Dashboard", admin_path %> <span class="divider">/</span></li>
-            <li><%= link_to "Users", admin_users_path %> <span class="divider">/</span></li>
+            <li><%= link_to "Διαχείρηση", admin_path %> <span class="divider">/</span></li>
+            <li><%= link_to "Χρήστες", admin_users_path %> <span class="divider">/</span></li>
             <li><%= @user.username %>
         </ul>
         <ul class="nav nav-tabs">
             <li class="active">
             	<%= link_to admin_user_path(@user) do %>
-            		<i class = "icon-info-sign"></i> Show
+            		<i class = "icon-info-sign"></i> Εμφάνηση χρήστη
             	<% end %>
             </li>
             <li>
             	<%= link_to edit_admin_user_path(@user) do %>
-            		<i class = "icon-pencil"></i> Edit User</a>
+            		<i class = "icon-pencil"></i> Αλλαγή χρήστη</a>
             	<% end%>
             </li>
             <li>
                 <%= link_to delete_admin_user_path(@user) do %>
-                    <i class = "icon-remove"></i> Delete User</a>
+                    <i class = "icon-remove"></i> Διαγραφή χρήστη</a>
                 <% end%>
             </li>
         </ul>
@@ -46,15 +46,15 @@
 					</div>
 					<h5><%= @user.username %></h5><br />
 					E-mail: <%= @user.email %><br />
-                    Account Creation: <%= @user.created_at %><br />
-                    Class: <% if @user.administrator %>Admin<% else %>User<% end %>
+                    Δημιουργία λογαριασμού: <%= I18n.l(@user.created_at) %><br />
+                    Κατηγορία: <% if @user.administrator %>Διαχειριστής<% else %>Χρήστης<% end %>
                     <div id = "user_wrapper">
                         <div class="accordion" id="user_accordion">
                             <h4>Statistics:</h4>
                             <div class="accordion-group">
                                 <div class="accordion-heading">
                                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#user_accordion" href="#comments_collapse">
-                                        Comments (<%= @user.comments.count %>)
+                                        Σχόλια (<%= @user.comments.count %>)
                                     </a>
                                 </div>
                                 <div id="comments_collapse" class="accordion-body collapse">
@@ -76,7 +76,7 @@
                             <div class="accordion-group">
                                 <div class="accordion-heading">
                                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#user_accordion" href="#topics_collapse">
-                                        Topics (<%= @user.topics.count %>)
+                                        Θέματα (<%= @user.topics.count %>)
                                     </a>
                                 </div>
                                 <div id="topics_collapse" class="accordion-body collapse">
@@ -98,7 +98,7 @@
                             <div class="accordion-group">
                                 <div class="accordion-heading">
                                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#user_accordion" href="#replies_collapse">
-                                        Forum Posts (<%= @user.replies.count %>)
+                                        Απαντήσεις (<%= @user.replies.count %>)
                                     </a>
                                 </div>
                                 <div id="replies_collapse" class="accordion-body collapse">
@@ -120,7 +120,7 @@
                             <div class="accordion-group">
                                 <div class="accordion-heading">
                                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#user_accordion" href="#polls_collapse">
-                                        Votes (<%= @user.poll_responses.count %>)
+                                        Ψήφοι (<%= @user.poll_responses.count %>)
                                     </a>
                                 </div>
                                 <div id="polls_collapse" class="accordion-body collapse">

@@ -3,9 +3,10 @@
 		<%= f.collection_select(:post_id, Post.all, :id, :title, {}, {:class => "dropdown"}) %>
 	</p>
 	<p>
+		<%= f.label 'Σχόλιο :' %>
 		<%= f.text_area :body, :id => "comment_textarea" %>
 	</p>
 	<p>
-		<%= f.submit "Done", :class => "btn"  %>
+		<%= f.submit "Καταχώρηση", :class => "btn"  %>
 	</p>
 <% end %>

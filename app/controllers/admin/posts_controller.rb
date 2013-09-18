@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Admin::PostsController < ApplicationController
 
 	before_filter :authorize_admin
@@ -50,7 +51,7 @@ class Admin::PostsController < ApplicationController
 		@post.user_id = current_user.id
 		respond_to do |format|
 			if @post.save
-				format.html { redirect_to admin_post_path(@post), notice: 'Post was successfully created.' }
+				format.html { redirect_to admin_post_path(@post), notice: 'Η ανάρτηση δημιουργήθηκε με επιτυχία' }
 				format.json { render json: @post, status: :created, location: [:admin,@post] }
 			else
 				format.html { render action: "new" }
@@ -67,7 +68,7 @@ class Admin::PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		respond_to do |format|
 			if @post.update_attributes(params[:post])
-				format.html { redirect_to admin_posts_url, notice: 'Post was successfully updated.' }
+				format.html { redirect_to admin_posts_url, notice: 'Η ανάρτηση άλλαξε με επιτυχία.' }
 				format.json { head :no_content }
 			else
 				format.html { render action: "edit" }

@@ -1,3 +1,4 @@
+# encoding: utf-8
 class SessionsController < ApplicationController
 
 	def new
@@ -17,9 +18,9 @@ class SessionsController < ApplicationController
 			else
 				cookies[:auth_token] = user.auth_token
 			end
-			redirect_to root_url, :notice => "Logged in!"
+			redirect_to root_url, :notice => "Συνδεθήκατε!"
 		else
-			flash.alert = "Invalid email or password"
+			flash.alert = "Λάθος e-mail ή κωδικός"
 			redirect_to root_url
 		end
 	end
@@ -28,7 +29,7 @@ class SessionsController < ApplicationController
 	# logout with notice
 	def destroy
 		cookies.delete(:auth_token)
-		redirect_to root_url, :notice => "Logged out!"
+		redirect_to root_url, :notice => "Αποσυνδεθήκατε!"
 	end
 
 end

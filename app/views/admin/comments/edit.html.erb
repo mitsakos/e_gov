@@ -1,39 +1,39 @@
 <div class = "dashboard_container">
     <div class = "well dashboard_navigation">
         <ul id = "admin_nav_list">
-            <li><%= link_to 'Manage Users', admin_users_path %></li>
-            <li><%= link_to 'Manage Posts', admin_posts_path %></li>
-            <li><%= link_to 'Manage Comments', admin_comments_path %></li>
-            <li><%= link_to 'Manage Forums', admin_forums_path %></li>
-            <li><%= link_to 'Manage Topics', admin_topics_path %></li>
-            <li><%= link_to 'Manage Forum Posts', admin_replies_path %></li>
-            <li><%= link_to 'Manage Events', admin_events_path %></li>
-            <li><%= link_to 'Manage Polls', admin_polls_path %></li>
+            <li><%= link_to 'Διαχείρηση χρηστών', admin_users_path %></li>
+            <li><%= link_to 'Διαχείρηση αναρτήσεων', admin_posts_path %></li>
+            <li><%= link_to 'Διαχείρηση σχολίων', admin_comments_path %></li>
+            <li><%= link_to 'Διαχείρηση forum', admin_forums_path %></li>
+            <li><%= link_to 'Διαχείρηση θεμάτων', admin_topics_path %></li>
+            <li><%= link_to 'Διαχείρηση απαντήσεων', admin_replies_path %></li>
+            <li><%= link_to 'Διαχείρηση συμβάντων', admin_events_path %></li>
+            <li><%= link_to 'Διαχείρηση ψηφοφοριών', admin_polls_path %></li>
         </ul>
     </div>
 
 
     <div class = "dashboard_content">
-        <h2 class = "dashboard_header">Edit  Comment #<%= @comment.id %></h2>
+        <h2 class = "dashboard_header">Αλλαγή σχολίου #<%= @comment.id %></h2>
         <ul class = "breadcrumb well">
-            <li><%= link_to "Dashboard", admin_path %> <span class="divider">/</span></li>
-            <li><%= link_to "Comments", admin_comments_path %> <span class="divider">/</span></li>
-            <li class = "active"><%= link_to "Edit Comment", edit_admin_comment_path(@comment) %></li>
+            <li><%= link_to "Διαχείρηση", admin_path %> <span class="divider">/</span></li>
+            <li><%= link_to "Σχόλια", admin_comments_path %> <span class="divider">/</span></li>
+            <li class = "active"><%= link_to "Αλλαγή σχολίου", edit_admin_comment_path(@comment) %></li>
         </ul>
         <ul class="nav nav-tabs">
             <li>
             	<%= link_to admin_comment_path(@comment) do %>
-            		<i class = "icon-info-sign"></i> Show
+            		<i class = "icon-info-sign"></i> Εμφάνιση σχολίου
             	<% end %>
             </li>
             <li class="active">
             	<%= link_to edit_admin_comment_path(@comment) do %>
-            		<i class = "icon-pencil"></i> Edit Comment</a>
+            		<i class = "icon-pencil"></i> Αλλαγή σχολίου</a>
             	<% end%>
             </li>
             <li>
                 <%= link_to delete_admin_comment_path(@comment) do %>
-                    <i class = "icon-remove"></i> Delete Comment</a>
+                    <i class = "icon-remove"></i> Διαγραφή σχολίου</a>
                 <% end%>
             </li>
         </ul>

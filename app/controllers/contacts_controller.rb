@@ -1,3 +1,4 @@
+# encoding: utf-8
 class ContactsController < ApplicationController
 
 	def index
@@ -13,13 +14,13 @@ class ContactsController < ApplicationController
 		
 		if verify_recaptcha() 
 			if @contact.valid? && UserMailer.contact(subject, name, email, body).deliver
-				flash[:notice] = "Your message has been sent!"
+				flash[:notice] = "Το μύνημά σας εστάλη!"
 				redirect_to contacts_url
 			else
 				render "index" 
 			end
 		else
-			@contact.errors[:base] << "Captcha is wrong!"
+			@contact.errors[:base] << "Η αναγνώριση ήταν λάθος!"
 			render "index"
 		end
 	end

@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Admin::UsersController < ApplicationController
 
 	before_filter :authorize_admin
@@ -34,7 +35,7 @@ class Admin::UsersController < ApplicationController
 	def create
 		@user = User.new(params[:user])
 		if @user.save
-			redirect_to admin_users_path, :notice => "User Created!"
+			redirect_to admin_users_path, :notice => "Ο χρήστης δημιουργήθηκε με επιτυχία!"
 		else
 			render "new"
 		end
@@ -48,7 +49,7 @@ class Admin::UsersController < ApplicationController
 		@user = User.find(params[:id])
 		respond_to do |format|
 			if @user.update_attributes(params[:user])
-				format.html { redirect_to profile_path, notice: 'User was successfully updated.' }
+				format.html { redirect_to profile_path, notice: 'Ο χρήστης άλλαξε με επιτυχία' }
 				format.json { head :no_content }
 			else
 				format.html { render action: "edit" }

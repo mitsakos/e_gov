@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Admin::ForumsController < ApplicationController
 
 	before_filter :authorize_admin
@@ -48,7 +49,7 @@ class Admin::ForumsController < ApplicationController
 
 		respond_to do |format|
 			if @forum.save
-				format.html { redirect_to admin_forums_path, notice: 'Forum was successfully created.' }
+				format.html { redirect_to admin_forums_path, notice: 'Το forum δημιουργήθηκε με επιτυχία' }
 				format.json { render json: @forum, status: :created, location: @forum }
 			else
 				format.html { render action: "new" }
@@ -64,7 +65,7 @@ class Admin::ForumsController < ApplicationController
 
 		respond_to do |format|
 			if @forum.update_attributes(params[:forum])
-				format.html { redirect_to @forum, notice: 'Forum was successfully updated.' }
+				format.html { redirect_to @forum, notice: 'Το forum άλλαξε με επιτυχία' }
 				format.json { head :no_content }
 			else
 				format.html { render action: "edit" }

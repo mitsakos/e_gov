@@ -1,7 +1,7 @@
 <h2><%= @forum.title %></h2>
 <ul class="breadcrumb">
 	<li>
-		<%= link_to 'Rails forums', forums_path %> <span class="divider">/</span>
+		<%= link_to 'Forum', forums_path %> <span class="divider">/</span>
 	</li>
 	<li class="active">
 		<%= @forum.title %>
@@ -10,9 +10,9 @@
 <table class = "table table-bordered" id = "topics_list">
 	<thead>
 		<tr>  
-			<th class = "span8">Topic Title</th>  
-			<th class = "span1">Replies</th>  
-			<th class = "span3">Last Post</th>
+			<th class = "span8">Τίτλος θέματος</th>  
+			<th class = "span1">Απαντήσεις</th>  
+			<th class = "span3">Τελευταία απάντηση</th>
 		</tr>
 	</thead>  
 	<% for topic in @topics %>  
@@ -20,8 +20,8 @@
 			<tr>  
 				<td><h4><%= link_to topic.title, forum_topic_path(@forum, topic) %><h4>
 					<% if admin? || is_owner(topic) %>
-						<%= button_to 'Edit', edit_forum_topic_path(@forum, topic), :id => "topic_edit", :class => "btn btn-info pull-right", :method => :get %>
-						<%= button_to 'Destroy', [topic.forum, topic], method: :delete, :id => "topic_destroy", data: { confirm: 'Are you sure?' }, :class => "btn btn-danger pull-right" %>
+						<%= button_to 'Αλλαγή', edit_forum_topic_path(@forum, topic), :id => "topic_edit", :class => "btn btn-info pull-right", :method => :get %>
+						<%= button_to 'Διαγραφή', [topic.forum, topic], method: :delete, :id => "topic_destroy", data: { confirm: 'Είστε σίγουρος;' }, :class => "btn btn-danger pull-right" %>
 						<% end %>
 				</td> 
 				<td>
@@ -33,9 +33,9 @@
 				</td>  
 				<td>
 					<% if topic.replies.count == 0 %>
-						currently empty
+						Δέν υπάρχουν απαντήσεις
 					<% else %>
-						<%= distance_of_time_in_words_to_now topic.last_post_at %> ago by <%= topic.replies.find(:last).user.username %>
+						<%= distance_of_time_in_words_to_now topic.last_post_at %> πριν απο τον χρήστη <%= topic.replies.find(:last).user.username %>
 					<% end %>
 				</td>
 			</tr>
@@ -44,5 +44,5 @@
 </table>
 <%= paginate @topics %>
 <% if current_user %>
-	<p><%= button_to "New Topic", new_forum_topic_url(@forum), :class => "btn", :method => :get %></p>
+	<p><%= button_to "Νέο θέμα", new_forum_topic_url(@forum), :class => "btn", :method => :get %></p>
 <% end %>

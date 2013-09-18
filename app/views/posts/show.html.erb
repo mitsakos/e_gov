@@ -6,12 +6,12 @@
 			</div>
 			<h3><%= @post.title %></h3><br />
 			<%= @post.content %><br /><br />
-			<b>Author: </b><%= @post.user.username %><br />
-			<b>Created: </b><%= time_ago_in_words(@post.created_at) %> ago
+			<b>Συγγραφέας: </b><%= @post.user.username %><br />
+			<b>Δημιουργήθηκε: </b><%= time_ago_in_words(@post.created_at) %> πρίν
 		</div><!-- end post_show -->
 		<div class = "row">
 			<div id="comments" class = "span6">
-				<h4 id="comments_count"><%= pluralize(@post.comments.count, 'Comment', 'Comments') %></h4>
+				<h4 id="comments_count"><%= pluralize(@post.comments.count, 'Σχόλιο', 'Σχόλια') %></h4>
 				<%= render @post.comments %>
 			</div><!-- end comments span -->
 		</div><!-- end row -->
@@ -21,14 +21,14 @@
 					<%= render "comments/form" %>
 				<% else %>
 					<p>
-						You need to log in to comment
+						Πρέπει να συνδεθείτε για να σχολιάσετε
 					</p>
 				<% end %>
 			</div><!-- end comment form span -->
 		</div><!-- end comment form row -->
 		<br />
 		<div id = "control_buttons">
-			<%= button_to 'Back', posts_path, :class => "btn pull-left", :method => :get%>
+			<%= button_to 'Πίσω', posts_path, :class => "btn pull-left", :method => :get%>
 		</div><!-- end control buttons div -->
 	</div><!-- end main area -->
 	<%= render 'layouts/aside' %>

@@ -1,3 +1,4 @@
+# encoding: utf-8
 class UsersController < ApplicationController 
 
 	# Creating a new user instance
@@ -21,7 +22,7 @@ class UsersController < ApplicationController
 		@user = User.new(params[:user])
 		if @user.save
 			UserMailer.registration_confirmation(@user).deliver
-			redirect_to root_url, :notice => "Signed up!"
+			redirect_to root_url, :notice => "Ο λογαριασμός δημιουργήθηκε με επιτυχία!"
 		else
 			render "new"
 		end
@@ -35,7 +36,7 @@ class UsersController < ApplicationController
 		@user = User.find_by_id(current_user.id)
 		respond_to do |format|
 			if @user.update_attributes(params[:user])
-				format.html { redirect_to profile_path, notice: 'Profile was successfully updated.' }
+				format.html { redirect_to profile_path, notice: 'Το προφίλ άλλαξε με επιτυχία' }
 				format.json { head :no_content }
 			else
 				format.html { render action: "edit" }

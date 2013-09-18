@@ -1,3 +1,4 @@
+# encoding: utf-8
 class PollsController < ApplicationController
 
 	helper_method :create_table
@@ -36,7 +37,7 @@ class PollsController < ApplicationController
 			@poll_response.poll_option_id = @poll_option.id
 			respond_to do |format|
 				if @poll.update_attributes(params[:poll]) && @poll_option.update_attributes(params[:poll_option]) && @poll_response.update_attributes(params[:poll_response])
-					format.html { redirect_to @poll, notice: 'Thank you for voting' }
+					format.html { redirect_to @poll, notice: 'Ευχαριστούμε που ψηφίσατε' }
 					format.json { head :no_content }
 				else
 					format.html { render action: "show" }

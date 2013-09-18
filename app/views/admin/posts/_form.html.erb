@@ -1,4 +1,4 @@
-<% message = pluralize(@post.errors.count, "error") + " prohibited this post from being saved: <br />" %>
+<% message = pluralize(@post.errors.count, "λάθος", "λάθη") + " εμπόδισαν την καταχώρηση αυτής της ανάρτησης: <br />" %>
 <% @post.errors.full_messages.each do |msg| %>
 	<% message = "#{message}#{msg}"+"<br />" %>
 <% end %>
@@ -8,17 +8,18 @@
 		<% flash.now[:error] =  message.html_safe %>
 	<% end %>
 	<p>
-		<%= f.label :title %><br />
+		<%= f.label 'Τίτλος' %><br />
 		<%= f.text_field :title %>
 	</p>
 	<p>
-		<%= f.label :content %><br />
+		<%= f.label 'Περιεχόμενο' %><br />
 		<%= f.text_area :content %>
 	</p>
 	<p>
+		<%= f.label 'Εικόνα' %><br />
 		<%= f.file_field :photo, :class => "btn" %>
 	</p>
 	<p>
-		<%= f.submit "Done", :class => "btn" %>
+		<%= f.submit "Καταχώρηση", :class => "btn" %>
 	</p>
 <% end %>

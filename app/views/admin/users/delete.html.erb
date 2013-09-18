@@ -1,49 +1,49 @@
 <div class = "dashboard_container">
     <div class = "well dashboard_navigation">
         <ul id = "admin_nav_list">
-            <li><%= link_to 'Manage Users', admin_users_path %></li>
-            <li><%= link_to 'Manage Posts', admin_posts_path %></li>
-            <li><%= link_to 'Manage Comments', admin_comments_path %></li>
-            <li><%= link_to 'Manage Forums', admin_forums_path %></li>
-            <li><%= link_to 'Manage Topics', admin_topics_path %></li>
-            <li><%= link_to 'Manage Forum Posts', admin_replies_path %></li>
-            <li><%= link_to 'Manage Events', admin_events_path %></li>
-            <li><%= link_to 'Manage Polls', admin_polls_path %></li>
+            <li><%= link_to 'Διαχείρηση χρηστών', admin_users_path %></li>
+            <li><%= link_to 'Διαχείρηση αναρτήσεων', admin_posts_path %></li>
+            <li><%= link_to 'Διαχείρηση σχολίων', admin_comments_path %></li>
+            <li><%= link_to 'Διαχείρηση forum', admin_forums_path %></li>
+            <li><%= link_to 'Διαχείρηση θεμάτων', admin_topics_path %></li>
+            <li><%= link_to 'Διαχείρηση απαντήσεων', admin_replies_path %></li>
+            <li><%= link_to 'Διαχείρηση συμβάντων', admin_events_path %></li>
+            <li><%= link_to 'Διαχείρηση ψηφοφοριών', admin_polls_path %></li>
         </ul>
     </div>
 
 
     <div class = "dashboard_content">
-        <h2 class = "dashboard_header">Delete User <%= @user.username %></h2>
+        <h2 class = "dashboard_header">Διαγραφή χρήστη <%= @user.username %></h2>
         <ul class = "breadcrumb well">
-            <li><%= link_to "Dashboard", admin_path %> <span class="divider">/</span></li>
-            <li><%= link_to "Users", admin_users_path %> <span class="divider">/</span></li>
+            <li><%= link_to "Διαχείρηση", admin_path %> <span class="divider">/</span></li>
+            <li><%= link_to "Χρήστες", admin_users_path %> <span class="divider">/</span></li>
             <li class = "active"><%= link_to "Delete User", delete_admin_user_path(@user) %></li>
         </ul>
         <ul class="nav nav-tabs">
             <li>
             	<%= link_to admin_user_path(@user) do %>
-            		<i class = "icon-info-sign"></i> Show
+            		<i class = "icon-info-sign"></i> Εμφάνηση χρήστη
             	<% end %>
             </li>
             <li>
             	<%= link_to edit_admin_user_path(@user) do %>
-            		<i class = "icon-pencil"></i> Edit User</a>
+            		<i class = "icon-pencil"></i> Αλλαγή χρήστη</a>
             	<% end%>
             </li>
             <li class="active">
                 <%= link_to delete_admin_user_path(@user) do %>
-                    <i class = "icon-remove"></i> Delete User</a>
+                    <i class = "icon-remove"></i> Διαγραφή χρήστη</a>
                 <% end%>
             </li>
         </ul>
 
         <div class="tab-content clear">
             <div class="tab-pane active" id="admin_delete_user">
-            	<h5>Are you sure you want to delete User "<%= @user.username %>"?</h5>
+            	<h5>Είστε σίγουρος οτι θέλετε να διαγράψετε τον χρήστη "<%= @user.username %>"?</h5>
                 <div>
-                    <%= button_to 'Yes, delete user', admin_user_path(@user), :class => "btn btn-danger pull-left", :id => "confirm_delete", :method => :delete %>
-                    <%= button_to 'Cancel', admin_user_path(@user), :class => "btn", :method => :get %>
+                    <%= button_to 'Ναί, διαγραφή', admin_user_path(@user), :class => "btn btn-danger pull-left", :id => "confirm_delete", :method => :delete %>
+                    <%= button_to 'Άκυρο', admin_user_path(@user), :class => "btn", :method => :get %>
                 </div>
             </div><br />
         </div>

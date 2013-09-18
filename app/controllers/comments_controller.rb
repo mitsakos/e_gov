@@ -1,3 +1,4 @@
+# encoding: utf-8
 class CommentsController < ApplicationController
 
 	before_filter :authorize_user
@@ -16,8 +17,8 @@ class CommentsController < ApplicationController
 			end
 		else
 			respond_to do |format|
-				format.html { redirect_to post_path(@post), alert: 'Invalid Comment' }
-				format.js { render :js => "alert('Invalid Comment');" }
+				format.html { redirect_to post_path(@post), alert: 'Μή έγκυρο σχόλιο' }
+				format.js { render :js => "alert('Μή έγκυρο σχόλιο');" }
 			end
 		end
 	end

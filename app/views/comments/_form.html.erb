@@ -1,11 +1,11 @@
 <div id = "comment_form",  class="span5">
 	<%= form_for(([@post, @post.comments.build]), :remote => true) do |f| %>
-		<legend>Add a comment</legend>
+		<legend>Προσθήκη σχολίου</legend>
 		<p>
 			<%= f.text_area :body, :id => "comment_textarea" %>
 		</p>
 		<p>
-			<%= f.submit "Create Comment", :class => "btn btn-small"  %>
+			<%= f.submit "Καταχώρηση σχολίου", :class => "btn btn-small"  %>
 		</p>
 	<% end %>
 </div>

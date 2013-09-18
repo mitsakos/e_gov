@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Admin::PollsController < ApplicationController
 
 	before_filter :authorize_admin
@@ -49,7 +50,7 @@ class Admin::PollsController < ApplicationController
 
 		respond_to do |format|
 			if @poll.save
-				format.html { redirect_to admin_poll_path(@poll), notice: 'Poll was successfully created.' }
+				format.html { redirect_to admin_poll_path(@poll), notice: 'Η ψηφοφορία δημιουργήθηκε με επιτυχία' }
 				format.json { render json: @poll, status: :created, location: @poll }
 			else
 				3.times { @poll.poll_options.build }
@@ -66,7 +67,7 @@ class Admin::PollsController < ApplicationController
 
 		respond_to do |format|
 			if @poll.update_attributes(params[:poll])
-				format.html { redirect_to admin_poll_path(@poll), notice: 'Poll was successfully updated.' }
+				format.html { redirect_to admin_poll_path(@poll), notice: 'Η ψηφοφορία άλλαξε με επιτυχία' }
 				format.json { head :no_content }
 			else
 				format.html { render action: "edit" }
@@ -99,14 +100,14 @@ class Admin::PollsController < ApplicationController
 			@poll_response.poll_option_id = @poll_option.id
 			respond_to do |format|
 				if @poll.update_attributes(params[:poll]) && @poll_option.update_attributes(params[:poll_option]) && @poll_response.update_attributes(params[:poll_response])
-					format.html { redirect_to admin_poll_path(@poll), notice: 'Thank you for voting' }
+					format.html { redirect_to admin_poll_path(@poll), notice: 'Ευχαριστούμε που ψηφίσατε' }
 					format.json { head :no_content }
 				else
 					format.html { render action: "show" }
 	 			end
 			end
 		else
-			flash[:error] = 'you have not voted!'
+			flash[:error] = 'Δέν έχετε ψηφίσει!'
 			redirect_to admin_poll_path(@poll)
 		end
 	end

@@ -1,7 +1,7 @@
 <h2><%= @topic.title %></h2>
 <ul class="breadcrumb">
 	<li>
-		<%= link_to 'Rails forums', forums_path %> <span class="divider">/</span>
+		<%= link_to 'Forum', forums_path %> <span class="divider">/</span>
 	</li>
 	<li>
 		<%= link_to @topic.forum.title, @topic.forum %> <span class="divider">/</span>
@@ -13,22 +13,22 @@
 <table class = "table table-bordered" id = "replies_list">
 	<thead>
 		<tr>  
-			<th class = "span3">User</th>  
-			<th class = "span9">Message</th>  
+			<th class = "span3">Χρήστης</th>  
+			<th class = "span9">Μήνυμα</th>  
 		</tr>
 	</thead>  
 	<% for reply in @reply %>
 		<tbody>
 			<tr>  
 				<td>
-					<%= reply.user.username %><br />Registered: <%= reply.user.created_at %>
+					<%= reply.user.username %><br />Εγγράφηκε: <%= I18n.l(reply.user.created_at) %>
 				</td>
 				<td id = "reply">
-					<div id = "reply_info"><%= reply.created_at %></div>
+					<div id = "reply_info"><%= I18n.l(reply.created_at) %></div>
 					<%= reply.body %>
 					<% if admin? || is_owner(reply) %>
-						<%= button_to 'Edit', edit_forum_topic_reply_path(reply.topic.forum.id, reply.topic.id, reply.id), :id => "reply_edit", :class => "btn btn-info pull-right", :method => :get %><br />
-						<%= button_to 'Destroy', forum_topic_reply_path(reply.topic.forum.id, reply.topic.id, reply.id), method: :delete, :id => "reply_destroy", data: { confirm: 'Are you sure?' }, :class => "btn btn-danger pull-right" %>
+						<%= button_to 'Αλλαγή', edit_forum_topic_reply_path(reply.topic.forum.id, reply.topic.id, reply.id), :id => "reply_edit", :class => "btn btn-info pull-right", :method => :get %><br />
+						<%= button_to 'Διαγραφή', forum_topic_reply_path(reply.topic.forum.id, reply.topic.id, reply.id), method: :delete, :id => "reply_destroy", data: { confirm: 'Είστε σίγουρος;' }, :class => "btn btn-danger pull-right" %>
 					<% end %>  
 				</td>  
 			</tr>
@@ -43,11 +43,11 @@
 			<%= f.text_area :body %>
 		</p>
   		<p>
-			<%= f.submit "Reply", :class => "btn" %>
+			<%= f.submit "Απάντηση", :class => "btn" %>
 		</p>
 	<% else %>
 		<p>
-			You need to log in to reply
+			Πρέπει να συνδεθείτε για να απαντήσετε
 		</p>
 	<% end %>
 

@@ -1,24 +1,24 @@
-<% message = pluralize(@user.errors.count, "error") + " prohibited password from being updated: <br />" %>
+<% message = pluralize(@user.errors.count, "λάθος", "λάθη") + " εμπόδισαν την αλλαγή του κωδικού: <br />" %>
 <% @user.errors.full_messages.each do |msg| %>
 	<% message = "#{message}#{msg}"+"<br />" %>
 <% end %>
 
 <div id = "password_edit" class="span4">
 	<%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
-		<legend>Reset password</legend>
+		<legend>Επαναφορά κωδικού</legend>
 		<% if @user.errors.any? %>
 			<% flash.now[:error] =  message.html_safe %>
 		<% end %>
 		<p>
-			<%= f.label :password %>
+			<%= f.label 'Κωδικός' %>
 			<%= f.password_field :password %>
 		</p>
 		<p>
-			<%= f.label :password_confirmation %>
+			<%= f.label 'Επιβεβαίωση κωδικού' %>
 			<%= f.password_field :password_confirmation %>
 		</p>
 		<p>
-			<%= f.submit "Update Password", :class => "btn" %>
+			<%= f.submit "Αλλαγή κωδικού", :class => "btn" %>
 		</p>
 	<% end %>
 </div>

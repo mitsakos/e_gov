@@ -14,37 +14,37 @@
 			</p>
 		</div>
 		
-		<% message = pluralize(@contact.errors.count, "error") + " prohibited this message from being sent: <br />" %>
+		<% message = pluralize(@contact.errors.count, "λάθος", "λάθη") + " εμπόδισαν την αποστολή αυτού του μηνύματος: <br />" %>
 		<% @contact.errors.full_messages.each do |msg| %>
 			<% message = "#{message}#{msg}"+"<br />" %>
 		<% end %>
 		<div id = "contact_form" class="span6">
-			<span id = "contact_form_legend">Contact Form</span>
+			<span id = "contact_form_legend">Φόρμα επικοινωνίας</span>
 			<%= form_for @contact do |f| %>
 				<% if @contact.errors.any? %>
 					<% flash.now[:error] =  message.html_safe %>
 				<% end %>
 				<p>
-					<%= f.label :subject %>
+					<%= f.label 'Θέμα' %>
 					<%= f.text_field :subject %>
 				</p>
 				<p>
-					<%= f.label :name %>
+					<%= f.label 'Όνομα' %>
 					<%= f.text_field :name %>
 				</p>
 				<p>
-					<%= f.label :email %>
+					<%= f.label 'E-mail' %>
 					<%= f.text_field :email %>
 				</p>
 				<p>
-					<%= f.label :body %>
+					<%= f.label 'Κείμενο' %>
 					<%= f.text_area :body %>
 				</p>
 				<p>
 					<%= recaptcha_tags %>
 				</p>
 				<p>
-					<%= f.submit "Done", :class => "btn" %>
+					<%= f.submit "Αποστολή", :class => "btn" %>
 				</p>
 			<% end %>
 		</div>

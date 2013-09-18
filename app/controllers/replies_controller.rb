@@ -1,3 +1,4 @@
+# encoding: utf-8
 class RepliesController < ApplicationController
 
 	before_filter :authorize_user, :except => [:index, :show]
@@ -19,10 +20,10 @@ class RepliesController < ApplicationController
 
 		respond_to do |format|
 			if @reply.save
-				format.html { redirect_to forum_topic_path(@forum, @topic), notice: 'Reply was successfully created.' }
+				format.html { redirect_to forum_topic_path(@forum, @topic), notice: 'Η απάντηση δημιουργήθηκε με επιτυχία' }
 				format.json { render json: @reply, status: :created, location: @reply }
 			else
-				format.html { redirect_to forum_topic_path(@forum, @topic), alert: 'Reply was invalid.' }
+				format.html { redirect_to forum_topic_path(@forum, @topic), alert: 'Η απάντηση ήταν άκυρη' }
 				format.json { render json: @reply.errors, status: :unprocessable_entity }
 			end
 		end
@@ -37,7 +38,7 @@ class RepliesController < ApplicationController
 
 		respond_to do |format|
 			if @reply.update_attributes(params[:reply])
-				format.html { redirect_to forum_topic_path(@forum, @topic), notice: 'Reply was successfully updated.' }
+				format.html { redirect_to forum_topic_path(@forum, @topic), notice: 'Η απάντηση άλλαξε με επιτυχία' }
 				format.json { head :no_content }
 			else
 				format.html { render action: "edit" }

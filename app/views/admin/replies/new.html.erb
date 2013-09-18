@@ -1,34 +1,34 @@
 <div class = "dashboard_container">
     <div class = "well dashboard_navigation">
         <ul id = "admin_nav_list">
-            <li><%= link_to 'Manage Users', admin_users_path %></li>
-            <li><%= link_to 'Manage Posts', admin_posts_path %></li>
-            <li><%= link_to 'Manage Comments', admin_comments_path %></li>
-            <li><%= link_to 'Manage Forums', admin_forums_path %></li>
-            <li><%= link_to 'Manage Topics', admin_topics_path %></li>
-            <li><%= link_to 'Manage Forum Posts', admin_replies_path %></li>
-            <li><%= link_to 'Manage Events', admin_events_path %></li>
-            <li><%= link_to 'Manage Polls', admin_polls_path %></li>
+            <li><%= link_to 'Διαχείρηση χρηστών', admin_users_path %></li>
+            <li><%= link_to 'Διαχείρηση αναρτήσεων', admin_posts_path %></li>
+            <li><%= link_to 'Διαχείρηση σχολίων', admin_comments_path %></li>
+            <li><%= link_to 'Διαχείρηση forum', admin_forums_path %></li>
+            <li><%= link_to 'Διαχείρηση θεμάτων', admin_topics_path %></li>
+            <li><%= link_to 'Διαχείρηση απαντήσεων', admin_replies_path %></li>
+            <li><%= link_to 'Διαχείρηση συμβάντων', admin_events_path %></li>
+            <li><%= link_to 'Διαχείρηση ψηφοφοριών', admin_polls_path %></li>
         </ul>
     </div>
 
 
     <div class = "dashboard_content">
-        <h2 class = "dashboard_header">New Forum Post</h2>
+        <h2 class = "dashboard_header">Δημιουργία απάντησης</h2>
         <ul class = "breadcrumb well">
-            <li><%= link_to "Dashboard", admin_path %> <span class="divider">/</span></li>
-            <li><%= link_to "Forum Posts", admin_replies_path %> <span class="divider">/</span></li>
-            <li class = "active"><%= link_to "New Forum Post", new_admin_reply_path %></li>
+            <li><%= link_to "Διαχείρηση", admin_path %> <span class="divider">/</span></li>
+            <li><%= link_to "Απαντήσεις", admin_replies_path %> <span class="divider">/</span></li>
+            <li class = "active"><%= link_to "Δημιουργία απάντησης", new_admin_reply_path %></li>
         </ul>
         <ul class="nav nav-tabs">
             <li>
             	<%= link_to admin_replies_path do %>
-            		<i class = "icon-list"></i> List
+            		<i class = "icon-list"></i> Λίστα απαντήσεων
             	<% end %>
             </li>
             <li class="active">
             	<%= link_to new_admin_reply_path do %>
-            		<i class = "icon-plus"></i> Add New</a>
+            		<i class = "icon-plus"></i> Δημιουργία απάντησης</a>
             	<% end%>
             </li>
         </ul>

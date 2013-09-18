@@ -24,7 +24,7 @@ $(function () {
                 plotShadow: false
             },
             title: {
-                text: 'Votes Chart'
+                text: 'Γράφημα ψήφων'
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.percentage}%</b>',
@@ -46,7 +46,7 @@ $(function () {
             },
             series: [{
                 type: 'pie',
-                name: 'Vote Percentage',
+                name: 'Ποσοστά ψήφων',
                 data: <%= raw create_table(@poll) %>
             }]
         });
@@ -80,7 +80,7 @@ $(function () {
 				</div>
                 <% if current_user && !(PollResponse.find_by_poll_id_and_user_id(@poll.id, current_user.id)) %>
     				<div class="actions">
-    					<%= f.submit "Vote", :class => "btn" %>
+    					<%= f.submit "Καταχώρηση", :class => "btn" %>
     				</div>
                 <% end %>
 			<% end %>

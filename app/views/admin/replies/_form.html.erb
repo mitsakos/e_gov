@@ -1,4 +1,4 @@
-<% message = pluralize(@reply.errors.count, "error") + " prohibited this reply from being saved: <br />" %>
+<% message = pluralize(@reply.errors.count, "λάθος", "λάθη") + " εμπόδισαν την καταχώρηση αυτής της απάντησης: <br />" %>
 <% @reply.errors.full_messages.each do |msg| %>
 	<% message = "#{message}#{msg}"+"<br />" %>
 <% end %>
@@ -14,7 +14,7 @@
 		<%= f.text_area :body %>
 	</p>
 	<p>
-		<%= f.submit "Done", :class => "btn" %>
+		<%= f.submit "Καταχώρηση", :class => "btn" %>
 	</p>
 
 <% end %>

@@ -1,3 +1,4 @@
+# encoding: utf-8
 class ApplicationController < ActionController::Base
 
 	protect_from_forgery
@@ -22,7 +23,7 @@ class ApplicationController < ActionController::Base
 		if current_user
 			true
 		else
-			flash[:alert] = "You need to log in!"
+			flash[:alert] = 'Δέν είστε συνδεδεμένος'
 			redirect_to root_url
 			false
 		end		
@@ -31,7 +32,7 @@ class ApplicationController < ActionController::Base
 	# Authorizing administrator
 	def authorize_admin
 		unless admin?
-			flash[:error] = "Unauthorized access"
+			flash[:error] = "Μή εξουσιοδοτημένη πρόσβαση"
 			redirect_to root_url
 			false
 		end		

@@ -5,8 +5,7 @@
 	</p>
     <% if admin? || is_owner(comment) %>
     	<div id = "destroy_comment">
-			<%= button_to 'Destroy Comment', [comment.post, comment],
-				               :confirm => 'Are you sure?',
+			<%= button_to 'Διαγραφή σχολίου', [comment.post, comment],
 				               :method => :delete,
 				               :class => "btn btn-small btn-danger", 
 				               :remote => true %>

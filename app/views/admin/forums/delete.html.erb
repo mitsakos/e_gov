@@ -1,52 +1,52 @@
 <div class = "dashboard_container">
     <div class = "well dashboard_navigation">
         <ul id = "admin_nav_list">
-            <li><%= link_to 'Manage Users', admin_users_path %></li>
-            <li><%= link_to 'Manage Posts', admin_posts_path %></li>
-            <li><%= link_to 'Manage Comments', admin_comments_path %></li>
-            <li><%= link_to 'Manage Forums', admin_forums_path %></li>
-            <li><%= link_to 'Manage Topics', admin_topics_path %></li>
-            <li><%= link_to 'Manage Forum Posts', admin_replies_path %></li>
-            <li><%= link_to 'Manage Events', admin_events_path %></li>
-            <li><%= link_to 'Manage Polls', admin_polls_path %></li>
+            <li><%= link_to 'Διαχείρηση χρηστών', admin_users_path %></li>
+            <li><%= link_to 'Διαχείρηση αναρτήσεων', admin_posts_path %></li>
+            <li><%= link_to 'Διαχείρηση σχολίων', admin_comments_path %></li>
+            <li><%= link_to 'Διαχείρηση forum', admin_forums_path %></li>
+            <li><%= link_to 'Διαχείρηση θεμάτων', admin_topics_path %></li>
+            <li><%= link_to 'Διαχείρηση απαντήσεων', admin_replies_path %></li>
+            <li><%= link_to 'Διαχείρηση συμβάντων', admin_events_path %></li>
+            <li><%= link_to 'Διαχείρηση ψηφοφοριών', admin_polls_path %></li>
         </ul>
     </div>
 
 
     <div class = "dashboard_content">
-        <h2 class = "dashboard_header">Delete Forum <%= @forum.title %></h2>
+        <h2 class = "dashboard_header">Διαγραφή forum <%= @forum.title %></h2>
         <ul class = "breadcrumb well">
-            <li><%= link_to "Dashboard", admin_path %> <span class="divider">/</span></li>
+            <li><%= link_to "Διαχείρηση", admin_path %> <span class="divider">/</span></li>
             <li><%= link_to "Forums", admin_forums_path %> <span class="divider">/</span></li>
-            <li class = "active"><%= link_to "Delete Forum", delete_admin_forum_path(@forum) %></li>
+            <li class = "active"><%= link_to "Διαγραφή forum", delete_admin_forum_path(@forum) %></li>
         </ul>
         <ul class="nav nav-tabs">
             <li>
             	<%= link_to admin_forum_path(@forum) do %>
-            		<i class = "icon-info-sign"></i> Show
+            		<i class = "icon-info-sign"></i> Εμφάνιση forum
             	<% end %>
             </li>
             <li>
             	<%= link_to edit_admin_forum_path(@forum) do %>
-            		<i class = "icon-pencil"></i> Edit Forum</a>
+            		<i class = "icon-pencil"></i> Αλλαγή forum</a>
             	<% end%>
             </li>
             <li class="active">
                 <%= link_to delete_admin_forum_path(@forum) do %>
-                    <i class = "icon-remove"></i> Delete Forum</a>
+                    <i class = "icon-remove"></i> Διαγραφή forum</a>
                 <% end%>
             </li>
         </ul>
 
         <div class="tab-content clear">
             <div class="tab-pane active" id="admin_delete_forum">
-            	<h5>Are you sure you want to delete Forum "<%= @forum.title %>"? The following topics will be deleted too:</h5>
+            	<h5>Είστε σίγουρος οτι θέλετε να διαγράψετε το forum "<%= @forum.title %>"; Θα διαγραφούν επίσης τα ακόλουθα θέματα:</h5>
                 <% @rel_topics.each do |rel_topic| %>
                     <span class = "label">Topic </span>&nbsp;<%= rel_topic.title %><br />
                 <% end %><br />
                 <div>
-                    <%= button_to 'Yes, delete it', admin_forum_path(@forum), :class => "btn btn-danger pull-left", :id => "confirm_delete", :method => :delete %>
-                    <%= button_to 'Cancel', admin_forum_path(@forum), :class => "btn", :method => :get %>
+                    <%= button_to 'Ναί, διαγραφή', admin_forum_path(@forum), :class => "btn btn-danger pull-left", :id => "confirm_delete", :method => :delete %>
+                    <%= button_to 'Άκυρο', admin_forum_path(@forum), :class => "btn", :method => :get %>
                 </div>
             </div><br />
         </div>

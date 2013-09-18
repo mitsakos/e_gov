@@ -3,9 +3,9 @@
 	<thead>
 		<tr>
 			<th class = "span8">Forum</th>  
-			<th class = "span4">Last Post</th>
+			<th class = "span4">Τελευταία απάντηση</th>
 			<% if admin? %>
-				<th>Controls</th>
+				<th>Διαχείρηση</th>
 			<% end %>
 		</tr>
 	</thead>
@@ -14,20 +14,20 @@
 			<tr>
 				<td>
 					<h4><%= link_to forum.title, forum %></h4>
-					<small><%= pluralize(forum.topics.count, 'Topic', 'Topics') %></small><br />
+					<small><%= pluralize(forum.topics.count, 'Θέμα', 'Θέματα') %></small><br />
 					<%= forum.description %>
 				</td>
 				<td>
 					<% if forum.most_recent_post %>
-						<%= distance_of_time_in_words_to_now forum.most_recent_post.last_post_at %> ago by <%= forum.most_recent_post.user.username %>
+						<%= distance_of_time_in_words_to_now forum.most_recent_post.last_post_at %> πριν απο τον χρήστη <%= forum.most_recent_post.user.username %>
 					<% else %>
-						no posts
+						Δέν υπάρχουν θέματα
 					<% end %>
 				</td>
 				<% if admin? %>
 					<td>
-						<%= button_to 'Edit', edit_forum_path(forum), :class => "btn btn-info", :method => :get %>
-						<%= button_to 'Destroy', forum, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+						<%= button_to 'Αλλαγή', edit_forum_path(forum), :class => "btn btn-info", :method => :get %>
+						<%= button_to 'Διαγραφή', forum, method: :delete, data: { confirm: 'Ειστε σίγουρος;' }, :class => "btn btn-danger" %>
 					</td>
 				<% end %>
 			</tr>
@@ -36,5 +36,5 @@
 </table>
 <br />
 <% if admin? %>
-	<%= button_to 'New Forum', new_forum_path, :class => "btn", :method => :get %>
+	<%= button_to 'Νέο Forum', new_forum_path, :class => "btn", :method => :get %>
 <% end %>

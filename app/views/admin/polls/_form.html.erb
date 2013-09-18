@@ -1,4 +1,4 @@
-<% message = pluralize(@poll.errors.count, "error") + " prohibited this poll from being saved: <br />" %>
+<% message = pluralize(@poll.errors.count, "λάθος", "λάθη") + " εμπόδισαν την καταχώρηση αυτής της ψηφοφορίας: <br />" %>
 <% @poll.errors.full_messages.each do |msg| %>
 	<% message = "#{message}#{msg}"+"<br />" %>
 <% end %>
@@ -9,7 +9,7 @@
 	<% end %>
 
 	<p class="field">
-		<%= f.label :question %><br />
+		<%= f.label 'Ερώτηση' %><br />
 		<%= f.text_area :question %>
 	</p>
 
@@ -18,10 +18,10 @@
 	<% end %>
 
 	<% if params[:action] == "new" %>
-		<%= link_to_add_fields "Add Option", f, :poll_options %>
+		<%= link_to_add_fields "Προσθήκη επιλογής", f, :poll_options %>
 	<% end %>
 
 	<p class="actions">
-		<%= f.submit "Done", :class => "btn" %>
+		<%= f.submit "Καταχώρηση", :class => "btn" %>
 	</p>
 <% end %>

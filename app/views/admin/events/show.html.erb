@@ -1,39 +1,39 @@
 <div class = "dashboard_container">
     <div class = "well dashboard_navigation">
         <ul id = "admin_nav_list">
-            <li><%= link_to 'Manage Users', admin_users_path %></li>
-            <li><%= link_to 'Manage Posts', admin_posts_path %></li>
-            <li><%= link_to 'Manage Comments', admin_comments_path %></li>
-            <li><%= link_to 'Manage Forums', admin_forums_path %></li>
-            <li><%= link_to 'Manage Topics', admin_topics_path %></li>
-            <li><%= link_to 'Manage Forum Posts', admin_replies_path %></li>
-            <li><%= link_to 'Manage Events', admin_events_path %></li>
-            <li><%= link_to 'Manage Polls', admin_polls_path %></li>
+            <li><%= link_to 'Διαχείρηση χρηστών', admin_users_path %></li>
+            <li><%= link_to 'Διαχείρηση αναρτήσεων', admin_posts_path %></li>
+            <li><%= link_to 'Διαχείρηση σχολίων', admin_comments_path %></li>
+            <li><%= link_to 'Διαχείρηση forum', admin_forums_path %></li>
+            <li><%= link_to 'Διαχείρηση θεμάτων', admin_topics_path %></li>
+            <li><%= link_to 'Διαχείρηση απαντήσεων', admin_replies_path %></li>
+            <li><%= link_to 'Διαχείρηση συμβάντων', admin_events_path %></li>
+            <li><%= link_to 'Διαχείρηση ψηφοφοριών', admin_polls_path %></li>
         </ul>
     </div>
 
 
     <div class = "dashboard_content">
-        <h2 class = "dashboard_header">Event <%= @event.name %></h2>
+        <h2 class = "dashboard_header">Συμβάν <%= @event.name %></h2>
         <ul class = "breadcrumb well">
-            <li><%= link_to "Dashboard", admin_path %> <span class="divider">/</span></li>
-            <li><%= link_to "Events", admin_events_path %> <span class="divider">/</span></li>
+            <li><%= link_to "Διαχείρηση", admin_path %> <span class="divider">/</span></li>
+            <li><%= link_to "Συμβάντα", admin_events_path %> <span class="divider">/</span></li>
             <li><%= @event.name %>
         </ul>
         <ul class="nav nav-tabs">
             <li class="active">
             	<%= link_to admin_event_path(@event) do %>
-            		<i class = "icon-info-sign"></i> Show
+            		<i class = "icon-info-sign"></i> Εμφάνιση συμβάντος
             	<% end %>
             </li>
             <li>
             	<%= link_to edit_admin_event_path(@event) do %>
-            		<i class = "icon-pencil"></i> Edit Event</a>
+            		<i class = "icon-pencil"></i> Αλλαγή συμβάντος</a>
             	<% end%>
             </li>
             <li>
                 <%= link_to delete_admin_event_path(@event) do %>
-                    <i class = "icon-remove"></i> Delete Event</a>
+                    <i class = "icon-remove"></i> Διαγραφή συμβάντος</a>
                 <% end%>
             </li>
         </ul>
@@ -46,8 +46,8 @@
 					</div>
 					<h3><%= @event.name %></h3><br />
 					<%= @event.content %><br /><br />
-					<b>Event Date: </b><%= @event.ev_date %><br />
-					<b>Created: </b><%= time_ago_in_words(@event.created_at) %> ago
+					<b>Ημερομηνία: </b><%= I18n.l(@event.ev_date) %><br />
+					<b>Δημιουργήθηκε: </b><%= time_ago_in_words(@event.created_at) %> πρίν
 				</div><!-- end event_show -->
             </div><br />
         </div>

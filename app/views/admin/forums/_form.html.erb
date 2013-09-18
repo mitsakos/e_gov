@@ -1,4 +1,4 @@
-<% message = pluralize(@forum.errors.count, "error") + " prohibited this forum from being saved: <br />" %>
+<% message = pluralize(@forum.errors.count, "λάθος", "λάθη") + " εμπόδισαν την καταχώρηση αυτού του forum: <br />" %>
 <% @forum.errors.full_messages.each do |msg| %>
 	<% message = "#{message}#{msg}"+"<br />" %>
 <% end %>
@@ -8,15 +8,15 @@
 		<% flash.now[:error] =  message.html_safe %>
 	<% end %>
 	<p>
-		<%= f.label :title %><br />
+		<%= f.label 'Τίτλος' %><br />
 		<%= f.text_field :title %>
 	</p>
 	<p>
-		<%= f.label :description %><br />
+		<%= f.label 'Περιγραφή' %><br />
 		<%= f.text_area :description %>
 	</p>
 	<p>
-		<%= f.submit "Done", :class => "btn" %>
+		<%= f.submit "Καταχώρηση", :class => "btn" %>
 	</p>
 
 <% end %>

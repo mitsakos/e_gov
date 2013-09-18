@@ -1,4 +1,4 @@
-<% message = pluralize(@user.errors.count, "error") + " prohibited this user from being created: <br />" %>
+<% message = pluralize(@user.errors.count, "λάθος", "λάθη") + " εμπόδισαν την καταχώρηση αυτού του χρήστη: <br />" %>
 <% @user.errors.full_messages.each do |msg| %>
 	<% message = "#{message}#{msg}"+"<br />" %>
 <% end %>
@@ -8,30 +8,30 @@
 		<% flash.now[:error] =  message.html_safe %>
 	<% end %>
 	<p>
-		<%= f.label :username %><br />
+		<%= f.label 'Όνομα χρήστη' %><br />
 		<%= f.text_field :username %>
 	</p>
 	<p>
-		<%= f.label :email %><br />
+		<%= f.label 'E-mail' %><br />
 		<%= f.text_field :email %>
 	</p>
 	<p>
-		<%= f.label :administrator %>
+		<%= f.label 'Διαχειριστής' %>
 		<%= f.check_box :administrator %>
 	</p>
 	<p>
-		<%= f.label :avatar %><br />
+		<%= f.label 'Φωτογραφία' %><br />
 		<%= f.file_field :avatar, :class => "btn" %>
 	</p>
 	<p>
-		<%= f.label :password %><br />
+		<%= f.label 'Κωδικός' %><br />
 		<%= f.password_field :password %>
 	</p>
 	<p>
-		<%= f.label :password_confirmation %><br />
+		<%= f.label 'Επιβεβαίωση κωδικού' %><br />
 		<%= f.password_field :password_confirmation %>
 	</p>
 	<p>
-		<%= f.submit "Done", :class => "btn" %>
+		<%= f.submit "Καταχώρηση", :class => "btn" %>
 	</p>
 <% end %>

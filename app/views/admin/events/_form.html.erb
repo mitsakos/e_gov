@@ -1,4 +1,4 @@
-<% message = pluralize(@event.errors.count, "error") + " prohibited this event from being saved: <br />" %>
+<% message = pluralize(@event.errors.count, "λάθος", "λάθη") + " εμπόδισαν την καταχώρηση αυτού του συμβάντος: <br />" %>
 <% @event.errors.full_messages.each do |msg| %>
 	<% message = "#{message}#{msg}"+"<br />" %>
 <% end %>
@@ -10,21 +10,23 @@
 	<% end %>
 
 	<p>
-		<%= f.label :name %><br />
+		<%= f.label 'Όνομα' %><br />
 		<%= f.text_field :name %>
 	</p>
 	<p>
-		<%= f.label :content %><br />
+		<%= f.label 'Περιεχόμενο' %><br />
 		<%= f.text_area :content %>
 	</p>
 	<p>
-		<%= f.label :ev_date %><br />
+		<%= f.label 'Ημερομηνία' %><br />
 		<%= f.text_field :ev_date %>
 	</p>
 	<p>
+		<%= f.label 'Εικόνα' %><br />
 		<%= f.file_field :photo, :class => "btn" %>
 	</p>
+	<br />
 	<p>
-    <%= f.submit "Done", :class => "btn" %>
+    <%= f.submit "Καταχώρηση", :class => "btn" %>
 	</p>
 <% end %>

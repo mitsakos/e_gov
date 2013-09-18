@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Admin::RepliesController < ApplicationController
 
 	before_filter :authorize_admin
@@ -40,10 +41,10 @@ class Admin::RepliesController < ApplicationController
 
 		respond_to do |format|
 			if @reply.save
-				format.html { redirect_to admin_reply_path(@reply), notice: 'Reply was successfully created.' }
+				format.html { redirect_to admin_reply_path(@reply), notice: 'Η απάντηση δημιουργήθηκε με επιτυχία' }
 				format.json { render json: @reply, status: :created, location: @reply }
 			else
-				format.html { redirect_to admin_reply_path(@reply), alert: 'Reply was invalid.' }
+				format.html { redirect_to admin_reply_path(@reply), alert: 'Η απάντηση ήταν άκυρη' }
 				format.json { render json: @reply.errors, status: :unprocessable_entity }
 			end
 		end
@@ -57,7 +58,7 @@ class Admin::RepliesController < ApplicationController
 
 		respond_to do |format|
 			if @reply.update_attributes(params[:reply])
-				format.html { redirect_to admin_reply_path(@reply), notice: 'Reply was successfully updated.' }
+				format.html { redirect_to admin_reply_path(@reply), notice: 'Η απάντηση άλλαξε με επιτυχία' }
 				format.json { head :no_content }
 			else
 				format.html { render action: "edit" }

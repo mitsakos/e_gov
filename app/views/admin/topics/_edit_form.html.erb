@@ -1,4 +1,4 @@
-<% message = pluralize(@topic.errors.count, "error") + " prohibited this topic from being saved: <br />" %>
+<% message = pluralize(@topic.errors.count, "λάθος", "λάθη") + " εμπόδισαν την καταχώρηση αυτού του θέματος: <br />" %>
 <% @topic.errors.full_messages.each do |msg| %>
 	<% message = "#{message}#{msg}"+"<br />" %>
 <% end %>
@@ -11,11 +11,11 @@
 		<%= f.collection_select(:forum_id, Forum.all, :id, :title, {}, {:class => "dropdown"}) %>
 	</p>
 	<p>
-		<%= f.label :title %><br />
+		<%= f.label 'Τίτλος' %><br />
 		<%= f.text_field :title %>
 	</p>
 	<p>
-		<%= f.submit "Done", :method => :get, :class => "btn" %>
+		<%= f.submit "Καταχώρηση", :method => :get, :class => "btn" %>
 	</p>
 
 <% end %>

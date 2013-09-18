@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Admin::TopicsController < ApplicationController
 
 	before_filter :authorize_admin
@@ -56,7 +57,7 @@ class Admin::TopicsController < ApplicationController
 
 		respond_to do |format|
 			if @topic.save && @reply.save
-				format.html { redirect_to admin_topic_path(@topic), notice: 'Topic was successfully created.' }
+				format.html { redirect_to admin_topic_path(@topic), notice: 'Το θέμα δημιουργήθηκε με επιτυχία' }
 				format.json { render json: @topic, status: :created, location: @topic }
 			else
 				format.html { render action: "new" }
@@ -73,7 +74,7 @@ class Admin::TopicsController < ApplicationController
 
 		respond_to do |format|
 			if @topic.update_attributes(params[:topic])
-				format.html { redirect_to admin_topic_path(@topic), notice: 'Topic was successfully updated.' }
+				format.html { redirect_to admin_topic_path(@topic), notice: 'Το θέμα άλλαξε με επιτυχία' }
 				format.json { head :no_content }
 			else
 				format.html { render action: "edit" }

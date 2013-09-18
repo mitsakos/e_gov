@@ -1,52 +1,52 @@
 <div class = "dashboard_container">
     <div class = "well dashboard_navigation">
         <ul id = "admin_nav_list">
-            <li><%= link_to 'Manage Users', admin_users_path %></li>
-            <li><%= link_to 'Manage Posts', admin_posts_path %></li>
-            <li><%= link_to 'Manage Comments', admin_comments_path %></li>
-            <li><%= link_to 'Manage Forums', admin_forums_path %></li>
-            <li><%= link_to 'Manage Topics', admin_topics_path %></li>
-            <li><%= link_to 'Manage Forum Posts', admin_replies_path %></li>
-            <li><%= link_to 'Manage Events', admin_events_path %></li>
-            <li><%= link_to 'Manage Polls', admin_polls_path %></li>
+            <li><%= link_to 'Διαχείρηση χρηστών', admin_users_path %></li>
+            <li><%= link_to 'Διαχείρηση αναρτήσεων', admin_posts_path %></li>
+            <li><%= link_to 'Διαχείρηση σχολίων', admin_comments_path %></li>
+            <li><%= link_to 'Διαχείρηση forum', admin_forums_path %></li>
+            <li><%= link_to 'Διαχείρηση θεμάτων', admin_topics_path %></li>
+            <li><%= link_to 'Διαχείρηση απαντήσεων', admin_replies_path %></li>
+            <li><%= link_to 'Διαχείρηση συμβάντων', admin_events_path %></li>
+            <li><%= link_to 'Διαχείρηση ψηφοφοριών', admin_polls_path %></li>
         </ul>
     </div>
 
 
     <div class = "dashboard_content">
-        <h2 class = "dashboard_header">Delete Topic <%= @topic.title %></h2>
+        <h2 class = "dashboard_header">Διαγραφή θέματος <%= @topic.title %></h2>
         <ul class = "breadcrumb well">
-            <li><%= link_to "Dashboard", admin_path %> <span class="divider">/</span></li>
-            <li><%= link_to "Topics", admin_topics_path %> <span class="divider">/</span></li>
-            <li class = "active"><%= link_to "Delete Topic", delete_admin_topic_path(@topic) %></li>
+            <li><%= link_to "Διαχείρηση", admin_path %> <span class="divider">/</span></li>
+            <li><%= link_to "Θέματα", admin_topics_path %> <span class="divider">/</span></li>
+            <li class = "active"><%= link_to "Διαγραφή θέματος", delete_admin_topic_path(@topic) %></li>
         </ul>
         <ul class="nav nav-tabs">
             <li>
             	<%= link_to admin_topic_path(@topic) do %>
-            		<i class = "icon-info-sign"></i> Show
+            		<i class = "icon-info-sign"></i> Εμφάνιση θέματος
             	<% end %>
             </li>
             <li>
             	<%= link_to edit_admin_topic_path(@topic) do %>
-            		<i class = "icon-pencil"></i> Edit Post</a>
+            		<i class = "icon-pencil"></i> Αλλαγή θέματος</a>
             	<% end%>
             </li>
             <li class="active">
                 <%= link_to delete_admin_topic_path(@topic) do %>
-                    <i class = "icon-remove"></i> Delete Post</a>
+                    <i class = "icon-remove"></i> Διαγραφή θέματος</a>
                 <% end%>
             </li>
         </ul>
 
         <div class="tab-content clear">
             <div class="tab-pane active" id="admin_delete_topic">
-            	<h5>Are you sure you want to delete Topic "<%= @topic.title %>"? The following topic posts will be deleted too:</h5>
+            	<h5>Είστε σίγουρος οτι θέλετε να διαγράψετε το θέμα "<%= @topic.title %>"; Θα διαγραφούν επίσης οι ακόλουθες απαντήσεις:</h5>
                 <% @rel_replies.each do |rel_reply| %>
-                    <span class = "label">Topic Post </span>&nbsp;<%= rel_reply.body %><br />
+                    <span class = "label">Απάντηση </span>&nbsp;<%= rel_reply.body %><br />
                 <% end %><br />
                 <div>
-                    <%= button_to 'Yes, delete it', admin_topic_path(@topic), :class => "btn btn-danger pull-left", :id => "confirm_delete", :method => :delete %>
-                    <%= button_to 'Cancel', admin_topic_path(@topic), :class => "btn", :method => :get %>
+                    <%= button_to 'Ναί, διαγραφή', admin_topic_path(@topic), :class => "btn btn-danger pull-left", :id => "confirm_delete", :method => :delete %>
+                    <%= button_to 'Άκυρο', admin_topic_path(@topic), :class => "btn", :method => :get %>
                 </div>
             </div><br />
         </div>

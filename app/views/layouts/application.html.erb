@@ -18,12 +18,12 @@
 					<div class = "container">
 	  					<a class = "brand" href="#">E-Gov</a>
 	  					<ul class="nav">
-	  						<li class="<%= 'active' if params[:controller] == "posts" %>"><%= link_to "Home", root_url %></li>
+	  						<li class="<%= 'active' if params[:controller] == "posts" %>"><%= link_to "Αρχική", root_url %></li>
 	  						<li class="<%= 'active' if params[:controller] == "forums" || params[:controller] == "topics" %>"><%= link_to "Forum", forums_url %></li>
-	  						<li class="<%= 'active' if params[:controller] == "polls" %>"><%= link_to "Polls", polls_url %></li>
-	  						<li class="<%= 'active' if params[:controller] == "static" && params[:action] == "links" %>"><%= link_to "Useful Links", links_url %></li>
-	  						<li class="<%= 'active' if params[:controller] == "static" && params[:action] == "contact" %>"><%= link_to "Contact", contacts_url %></li>
-	  						<li><%= link_to "RSS Feed", posts_url(:rss) %></li>
+	  						<li class="<%= 'active' if params[:controller] == "polls" %>"><%= link_to "Ψηφοφορίες", polls_url %></li>
+	  						<li class="<%= 'active' if params[:controller] == "static" && params[:action] == "links" %>"><%= link_to "Χρήσιμοι σύνδεσμοι", links_url %></li>
+	  						<li class="<%= 'active' if params[:controller] == "static" && params[:action] == "contact" %>"><%= link_to "Επικοινωνία", contacts_url %></li>
+	  						<li><%= link_to "Ροές RSS", posts_url(:rss) %></li>
 	  					</ul>
 	  					<ul class = "nav pull-right">
 							<li class = "dropdown">
@@ -31,7 +31,7 @@
 									<% if current_user %>
 										<i class="icon-user icon-white"></i> <%= current_user.username %>
 									<% else %>
-										Sign up or Log in
+										Δημιουργία λογαριασμού ή Σύνδεση
 									<% end %>
 									<b class="caret"></b>
 								</a>
@@ -40,30 +40,30 @@
 										<% if admin? %>
 											<li>
 												<%= link_to admin_path do %>
-													<i class="icon-briefcase"></i> Admin Panel
+													<i class="icon-briefcase"></i> Διαχείρηση
 												<% end %>
 											</li>
 										<% end %>
 										<li>
 											<%= link_to profile_path do %>
-												<i class="icon-home"></i> Profile
+												<i class="icon-home"></i> Προφίλ
 											<% end %>
 										</li>
 										<li class = "divider"></li>
 										<li>
 											<%= link_to log_out_path do %>
-												<i class="icon-share"></i> Log out
+												<i class="icon-share"></i> Έξοδος
 											<% end %>
 										</li>
 									<% else %>
 										<li>
 											<%= link_to("#loginModal", :id => 'login', "data-toggle" => "modal") do %>
-												<i class="icon-check"></i> Log in
+												<i class="icon-check"></i> Σύνδεση
 											<% end %>
 										</li>
 										<li>
 											<%= link_to sign_up_path do %>
-												<i class="icon-edit"></i> Sign up
+												<i class="icon-edit"></i> Δημιουργία λογαριασμού
 											<% end %>
 										</li>
 									<% end %>

@@ -12,7 +12,7 @@ $(function () {
                 text: null
             },
             xAxis: {
-                categories: ['Users', 'Posts', 'Comments', 'Forums', 'Topics', 'Forum Posts','Events', 'Polls'],
+                categories: ['Χρήστες', 'Αναρτήσεις', 'Σχόλια', 'Forum', 'Θέματα', 'Απαντήσεις','Συμβάντα', 'Ψηφοφορίες'],
                 title: {
                     text: null
                 }
@@ -61,25 +61,25 @@ $(function () {
 <div class = "dashboard_container">
 	<div class = "well dashboard_navigation">
 		<ul id = "admin_nav_list">
-			<li><%= link_to 'Manage Users', admin_users_path %></li>
-			<li><%= link_to 'Manage Posts', admin_posts_path %></li>
-            <li><%= link_to 'Manage Comments', admin_comments_path %></li>
-            <li><%= link_to 'Manage Forums', admin_forums_path %></li>
-            <li><%= link_to 'Manage Topics', admin_topics_path %></li>
-            <li><%= link_to 'Manage Forum Posts', admin_replies_path %></li>
-            <li><%= link_to 'Manage Events', admin_events_path %></li>
-            <li><%= link_to 'Manage Polls', admin_polls_path %></li>
+			<li><%= link_to 'Διαχείρηση χρηστών', admin_users_path %></li>
+            <li><%= link_to 'Διαχείρηση αναρτήσεων', admin_posts_path %></li>
+            <li><%= link_to 'Διαχείρηση σχολίων', admin_comments_path %></li>
+            <li><%= link_to 'Διαχείρηση forum', admin_forums_path %></li>
+            <li><%= link_to 'Διαχείρηση θεμάτων', admin_topics_path %></li>
+            <li><%= link_to 'Διαχείρηση απαντήσεων', admin_replies_path %></li>
+            <li><%= link_to 'Διαχείρηση συμβάντων', admin_events_path %></li>
+            <li><%= link_to 'Διαχείρηση ψηφοφοριών', admin_polls_path %></li>
 		</ul>
 	</div>
 
 
 	<div class = "dashboard_content">
-		<h2 class = "dashboard_header">Site Administration</h2>
+		<h2 class = "dashboard_header">Διαχείρηση ιστοτόπου</h2>
 		<ul class = "breadcrumb well">
-			<li class = "active"><%= link_to "Dashboard", admin_path %></li>
+			<li class = "active"><%= link_to "Διαχείρηση", admin_path %></li>
 		</ul>
 		<ul class="nav nav-tabs" id="Dashboard">
-			<li class="active"><a href="#"><i class = "icon-home"></i> Dashboard</a></li>
+			<li class="active"><a href="#"><i class = "icon-home"></i> Γράφημα</a></li>
 		</ul>
 
 		<div class="tab-content clear">

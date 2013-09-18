@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Admin::CommentsController < ApplicationController
 
 	before_filter :authorize_admin
@@ -55,7 +56,7 @@ class Admin::CommentsController < ApplicationController
 			end
 		else
 			respond_to do |format|
-				format.html { redirect_to admin_comments_path, alert: 'Invalid Comment' }
+				format.html { redirect_to admin_comments_path, alert: 'Μή έγκυρο σχόλιο' }
 			end
 		end
 	end
@@ -69,7 +70,7 @@ class Admin::CommentsController < ApplicationController
 		@comment.post_id = params[:comment][:post_id]
 		respond_to do |format|
 			if @comment.update_attributes(params[:comment])
-				format.html { redirect_to admin_comments_url, notice: 'Comment was successfully updated.' }
+				format.html { redirect_to admin_comments_url, notice: 'Το σχόλιο άλλαξε με επιτυχία' }
 				format.json { head :no_content }
 			else
 				format.html { render action: "edit" }
