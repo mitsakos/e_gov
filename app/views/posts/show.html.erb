@@ -5,7 +5,7 @@
 				<%= image_tag @post.photo.url(:large), :class => "img-polaroid" %>
 			</div>
 			<h3><%= @post.title %></h3><br />
-			<%= @post.content %><br /><br />
+			<%= simple_format(@post.content) %><br /><br />
 			<b>Συγγραφέας: </b><%= @post.user.username %><br />
 			<b>Δημιουργήθηκε: </b><%= time_ago_in_words(@post.created_at) %> πρίν
 		</div><!-- end post_show -->
