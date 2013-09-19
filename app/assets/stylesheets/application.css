@@ -14,6 +14,9 @@
  *= require_tree .
  */
  
+#post h3 {
+  line-height: 25px;
+}
 
  #notification {
  	margin-bottom: 0;
