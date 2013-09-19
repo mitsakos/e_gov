@@ -3,15 +3,14 @@
 		<div id = "event_show">
 			<div id = "image_large"> 
 				<%= image_tag @event.photo.url(:large), :class => "img-polaroid" %>
-				<div id = "control_buttons">
-					<%= button_to 'Πίσω', root_path, :class => "btn pull-left", :method => :get%>
-				</div><!-- end control buttons div -->
 			</div>
 			<h3><%= @event.name %></h3><br />
 			<%= simple_format(@event.content) %><br /><br />
 			<b>Ημερομηνία: </b><%= I18n.l(@event.ev_date) %><br />
 		</div><!-- end event_show -->
-		
+		<div id = "control_buttons">
+			<%= button_to 'Πίσω', root_path, :class => "btn pull-left", :method => :get%>
+		</div><!-- end control buttons div -->	
 	</div><!-- end main area -->
 	<%= render 'layouts/aside' %>
 </div><!-- end main row -->
