@@ -1,4 +1,11 @@
 el:
+  views:
+        pagination:
+          first: "&laquo; Πρώτη"
+          last: "Τελευταία &raquo;"
+          previous: "&lsaquo; Προηγ"
+          next: "Επόμ &rsaquo;"
+          truncate: "..."
   date:
     abbr_day_names:
     - Κυρ
@@ -233,3 +240,4 @@ el:
         username: "Το πεδίο 'Όνομα χρήστη'"
         avatar_file_size: "Το μέγεθος της φωτογραφίας"
         avatar_content_type: "Το πεδίο 'Τύπος αρχείου'"
+      
