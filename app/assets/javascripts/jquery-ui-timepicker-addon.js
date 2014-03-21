@@ -40,19 +40,23 @@
 	function Timepicker() {
 		this.regional = []; // Available regional settings, indexed by language code
 		this.regional[''] = { // Default regional settings
-			currentText: 'Now',
-			closeText: 'Done',
-			amNames: ['AM', 'A'],
-			pmNames: ['PM', 'P'],
+			currentText: 'Τώρα',
+			closeText: 'Κλείσιμο',
+			amNames: ['π.μ.', 'AM', 'A'],
+			pmNames: ['μ.μ.', 'PM', 'P'],
 			timeFormat: 'HH:mm',
 			timeSuffix: '',
-			timeOnlyTitle: 'Choose Time',
-			timeText: 'Time',
-			hourText: 'Hour',
-			minuteText: 'Minute',
-			secondText: 'Second',
-			millisecText: 'Millisecond',
-			timezoneText: 'Time Zone',
+			timeOnlyTitle: 'Επιλογή ώρας',
+			monthNames: ['Ιανουάριος','Φεβρουάριος','Μάρτιος','Απρίλιος','Μάιος','Ιούνιος',
+			'Ιούλιος','Αύγουστος','Σεπτέμβριος','Οκτώβριος','Νοέμβριος','Δεκέμβριος'],
+			dayNames: ['Κυριακή','Δευτέρα','Τρίτη','Τετάρτη','Πέμπτη','Παρασκευή','Σάββατο'],
+			dayNamesMin: ['Κυ','Δε','Τρ','Τε','Πε','Πα','Σα'],
+			timeText: 'Ώρα',
+			hourText: 'Ώρες',
+			minuteText: 'Λεπτά',
+			secondText: 'Δευτερόλεπτα',
+			millisecText: 'μιλιδευτερόλεπτο',
+			timezoneText: 'Ζώνη ώρας',
 			isRTL: false
 		};
 		this._defaults = { // Global defaults for all the datetime picker instances
